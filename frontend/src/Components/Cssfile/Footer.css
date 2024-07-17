@@ -1,0 +1,119 @@
+.footercontainer {
+    height: 30rem;
+    padding: 2rem;
+    background: rgb(36, 36, 36);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.footerbox {
+    /* border: 2px solid white; */
+    padding-top: 2rem;
+    color: white;
+}
+
+.footerbox>a {
+    text-decoration: none;
+}
+
+.footerlogo {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.footerfarm {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+    color: orange;
+}
+
+.footerlogomi {
+    color: rgb(255, 128, 0);
+    font-size: 3rem;
+}
+
+nav {
+    padding-top: 2rem;
+    line-height: 2rem;
+}
+
+.socialicons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem 0px;
+    /* border: 2px solid white; */
+}
+
+.icons {
+    font-size: 1.5rem;
+}
+
+.footercollection {
+    padding: 2rem;
+}
+
+
+.footercollection>h5 {
+    padding-bottom: 2rem;
+}
+
+.footercollection>p>a {
+    text-decoration: none;
+    color: white;
+}
+
+.locationicon {
+    font-size: 2rem;
+}
+
+.locationcontainer {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.address {
+    padding-left: 0.7rem;
+    line-height: 2rem;
+}
+
+.phoneicon {
+    font-size: 1.5rem;
+}
+
+.locbox {
+    border: 2px solid white;
+}
+
+.newletter {
+    display: flex;
+    height: 15%;
+    width: 100%;
+    border: 2px solid white;
+}
+
+.newletter>input {
+    height: 100%;
+    width: 80%;
+    border: 2px solid rgb(180, 180, 180);
+    padding-left: 1rem;
+}
+
+.newletter>input:focus {
+    outline: none;
+}
+
+.mailsendicon {
+    height: 100%;
+    width: 20%;
+    background: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.mailicon {
+    font-size: medium;
+}

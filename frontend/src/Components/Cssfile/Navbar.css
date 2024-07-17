@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.navbar.custom-navbar {
+    height: 100%;
+    width: 100%;
+    padding: 1rem 6rem;
+    background: white;
+    display: grid;
+    border-bottom: 2px solid grey;
+    grid-template-columns: 1fr 2fr 1fr;
+
+}
+
+.logomi {
+    color: rgb(255, 128, 0);
+    font-size: 1.6rem;
+}
+
+.logocontainer {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.logocontainer>a {
+    text-decoration: none;
+}
+
+.logocontainer>a>.logosvg {
+    color: black;
+}
+
+.logocontainer>a>.farm {
+    color: rgb(255, 128, 0);
+}
+
+.menulist {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+.menulist>ul {
+    height: 100%;
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.menulist>ul>li {
+    padding: 0px 2rem;
+    list-style: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+}
+
+.menulist>ul>li>a {
+    text-decoration: none;
+    color: rgb(42, 41, 41);
+}
+
+.cart {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.logintextcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    padding-right: 2rem;
+}
+
+.loginlink {
+    text-decoration: none;
+    color: black;
+}
+
+.loginlink:hover {
+    color: white;
+    border-radius: 6px;
+    background: rgb(239, 165, 29);
+
+}
+
+
+
+.login {
+    height: 2.5rem;
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(255, 128, 0);
+    border-radius: 6px;
+}
+
+.login>button {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    padding: 0px 0.5rem;
+    text-decoration: none;
+    color: black;
+    background: none;
+    border: none;
+}
+
+.accountcircle {
+    color: rgb(255, 128, 0);
+    font-size: 26px;
+}

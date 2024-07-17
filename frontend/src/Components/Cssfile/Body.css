@@ -1,0 +1,200 @@
+    .bodycontainer {
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .carousel {
+        height: 75vh;
+    }
+
+    .ourservices {
+        font-family: monospace;
+        height: 100%;
+        margin: 0px 4rem;
+        padding-bottom: 2rem;
+        background: rgb(245, 244, 244);
+    }
+
+    .contenttext {
+        padding-top: 3rem;
+        height: 10rem;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+    }
+
+    .contenttext>h3 {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: 800;
+        letter-spacing: 2px;
+    }
+
+    .hexgonalcontainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hexagonaltext {
+        height: 100%;
+        width: 20%;
+        display: block;
+        justify-content: center;
+        border: 2px solid rgb(234, 174, 61);
+        text-align: center;
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: 0 0 15px rgb(255, 255, 255);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .hexagonaltext:hover {
+        color: rgb(255, 149, 0);
+    }
+
+    .hexagonaltext>h3 {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .HiDotsHorizontal {
+        margin: 1rem;
+    }
+
+    .hexadesign {
+        display: flex;
+        justify-content: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+
+    .hexagon {
+        width: 160px;
+        height: 160px;
+        background-color: rgb(255, 255, 255);
+        margin: 20px;
+        display: inline-block;
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hexagoninner {
+        width: 130px;
+        height: 130px;
+        background-color: rgb(234, 234, 234);
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .honeyproductionlogo {
+        color: orange;
+        font-size: 4rem;
+    }
+
+    .servicebtn {
+        height: 7rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .animated-button {
+        position: relative;
+        padding: 10px 30px;
+        font-size: 16px;
+        font-weight: 600;
+        color: rgb(27, 26, 26);
+        background-color: none;
+        border: 2px solid orange;
+        border-radius: 50px;
+        cursor: pointer;
+        outline: none;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .animated-button::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 100%;
+        left: 0;
+        background-color: orange;
+        z-index: -1;
+        transition: top 0.7s ease-in;
+    }
+
+    .animated-button:hover::before {
+        top: 0;
+        color: white;
+
+    }
+
+    .animated-button:hover {
+        box-shadow: 0 0 15px rgb(255, 255, 255);
+    }
+
+
+    .products {
+        height: 100%;
+        margin: 0px 4rem;
+        padding-bottom: 2rem;
+        background: white;
+    }
+
+    .bodyproduct>h3 {
+        margin: 2rem;
+        text-align: center;
+        font-family: monospace;
+        font-size: 2rem;
+        letter-spacing: 3px;
+        font-weight: 700;
+    }
+
+    .productscontainer {
+        height: 30rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .box {
+        margin: 0px 2rem;
+    }
+
+    .ourproductsimage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .circleproductcontainer {
+        height: 30%;
+        margin: 1rem 0px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .circleproduct {
+        height: 70px;
+        width: 85px;
+        border-radius: 50%;
+        margin: 0px 1rem;
+        background: rgb(255, 199, 110);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 6px 0 rgb(48, 48, 48);
+    }
+
+    .giicon {
+        font-size: xx-large;
+    }

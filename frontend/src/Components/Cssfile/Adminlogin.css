@@ -1,0 +1,65 @@
+.adminlogin {
+    height: 100vh;
+    background: linear-gradient(rgb(243, 215, 0), rgb(248, 171, 5));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.adminlogincont,
+.userlogincont {
+    background: url(https://img.freepik.com/free-photo/honey-jar-ai-generated-image_268835-5046.jpg);
+    backdrop-filter: blur(10px);
+    width: 30%;
+    border: 2px solid rgb(199, 199, 199);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 3rem;
+    gap: 1rem;
+    box-shadow: 0px 0px 20px grey;
+}
+
+.adminlogincont>label,
+.userlogincont>label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: white;
+}
+
+.adminlogincont>input,
+.userlogincont>input {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1rem;
+    border: none;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.adminlogincont>input:focus,
+.userlogincont>input:focus {
+    outline: none;
+    border-bottom: 4px solid green;
+}
+
+.adminlogincont>button,
+.userlogincont>button {
+    padding: 4px;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    font-style: oblique;
+    background: none;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+.adminlogincont>button:hover,
+.userlogincont>button:hover {
+    background: white;
+}
+
+.adminlogincont>p,
+.userlogincont>p {
+}
