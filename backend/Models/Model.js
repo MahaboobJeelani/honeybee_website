@@ -14,8 +14,18 @@ const honeydataSchema = new mongoose.Schema({
     imagelink: { type: String, required: true }
 }, { timestamps: true })
 
+const userData = new mongoose.Schema({
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    phone: { type: Number, required: true },
+    address: { type: String, required: true },
+    state: { type: String, required: true }
+})
+
 const honeyModel = mongoose.model('honeyadmi', honeySchema)
 
 const honeydata = mongoose.model('honeydata', honeydataSchema)
 
-module.exports = { honeyModel, honeydata }
+const userDatas = mongoose.model('userdata', userData)
+
+module.exports = { honeyModel, honeydata, userDatas }

@@ -1,16 +1,24 @@
-import './Cssfile/Adminlogin.css'
+import '../Cssfile/Adminlogin.css'
 import axios from 'axios'
 import React, { useState } from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
-    let [email, setEmail] = useState('')
-    let [password, setPassword] = useState('')
+    let [email, setEmail] = useState('guru123@gmail.com')
+    let [password, setPassword] = useState('guru123@')
 
-    let loginAdmin = () => {
-        axios.post(`http://localhost:8081/login`)
+    let navigate = useNavigate()
+
+    let loginAdmin = (e) => {
+        e.preventDefault()
+        let payload = {
+            email: email,
+            password: password
+        }
+        axios.post(`http://localhost:8081/login`, payload)
             .then((res) => {
+                navigate('/')
                 console.log(res);
             }).catch((error) => {
                 console.log(error.message);
@@ -26,6 +34,7 @@ const Login = () => {
                 <label htmlFor="">Password</label>
                 <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password' />
                 <button type='submit'>submit</button>
+
                 <p>Don't have account <Link to='/adminregister'>Register</Link></p>
             </form>
 

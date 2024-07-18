@@ -1,7 +1,7 @@
 import React from 'react'
 import { GiDrippingHoney } from 'react-icons/gi'
 import { Link } from 'react-router-dom'
-import '../Components/Cssfile/Footer.css'
+import '../Cssfile/Footer.css'
 import { ImFacebook2 } from "react-icons/im";
 import { FaInstagramSquare, FaPinterestSquare } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
@@ -11,7 +11,7 @@ import { MdOutlinePhoneAndroid, MdAttachEmail } from "react-icons/md";
 
 const Footercom = () => {
     return (
-        <div className='footercontainer'>
+        <footer className='footercontainer'>
             <div className='footerbox'>
                 <Link to='/'>
 
@@ -73,7 +73,7 @@ const Footercom = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     )
 }
 

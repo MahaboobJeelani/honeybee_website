@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
-import './Cssfile/Main.css'
+import '../Cssfile/Main.css'
 import Body from './Body'
 import Footercom from './Footercom'
 

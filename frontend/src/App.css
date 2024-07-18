@@ -8,3 +8,10 @@
 .apppage {
     height: 100vh;
 }
+
+@media screen and (max-width:480px) {
+    .apppage{
+        height: 100vh;
+        /* border: 2px solid green; */
+    }
+}
