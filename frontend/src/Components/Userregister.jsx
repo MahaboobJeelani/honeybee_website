@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import './Cssfile/Register.css'
+import '../Cssfile/Register.css'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Userregister = () => {
@@ -19,7 +19,7 @@ const Userregister = () => {
         }
         axios.post(`http://localhost:8081/register`, payload)
             .then((res) => {
-                navigation('/')
+                navigation('/userlogin')
                 console.log("Resgister successfully", res);
             })
             .catch((error) => {

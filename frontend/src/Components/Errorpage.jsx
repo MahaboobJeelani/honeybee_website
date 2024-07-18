@@ -1,5 +1,5 @@
 import React from 'react'
-import './Cssfile/Errorpage.css'
+import '../Cssfile/Errorpage.css'
 const Errorpage = () => {
     return (
         <div className='notfound'>

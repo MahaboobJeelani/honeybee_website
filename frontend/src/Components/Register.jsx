@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import './Cssfile/Register.css'
+import '../Cssfile/Register.css'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Register = () => {
@@ -20,7 +20,7 @@ const Register = () => {
         }
         axios.post(`http://localhost:8081/register`, payload)
             .then((res) => {
-                navigation('/')
+                navigation('/adminlogin')
                 console.log("Resgister successfully", res);
             })
             .catch((error) => {
@@ -43,9 +43,7 @@ const Register = () => {
                     <label htmlFor="">Password</label>
                     <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password' />
                     <button type='submit'>submit</button>
-                    <div>
-                        <p>Already have an account <Link to='/adminlogin'>Sign in</Link></p>
-                    </div>
+                    <p>Already have an account <Link to='/adminlogin'>Sign in</Link></p>
                 </form>
             </div>
         </div>

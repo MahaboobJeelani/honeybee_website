@@ -1,8 +1,8 @@
-import SliderOne from './Images/SliderImg.jpg';
-import SliderImg2 from './Images/SliderImg2.jpg';
-import SliderImg3 from './Images/SliderImg3.png';
+import SliderOne from '../Images/SliderImg.jpg';
+import SliderImg2 from '../Images/SliderImg2.jpg';
+import SliderImg3 from '../Images/SliderImg3.png';
 import React from 'react';
-import '../Components/Cssfile/Carousel.css'
+import '../Cssfile/Carousel.css'
 import { MDBCarousel, MDBCarouselItem, MDBCarouselCaption } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 

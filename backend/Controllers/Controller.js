@@ -17,16 +17,19 @@ const userRegister = async (req, resp) => {
 }
 
 const userLogin = async (req, resp) => {
+    const { email, password } = req.body
+
     try {
-        const { email, password } = req.body
         const findUser = await honeyModel.findOne({ email });
+
         if (!findUser) {
             resp.status(404).send('User Not Found')
         } else if (findUser.password !== password) {
             resp.status(404).send('Password is Invalid')
         } else {
-            resp.status(200).send('Login Successfully')
+            resp.status(200).json({ "login": true, message: 'Login Successfully' })
         }
+
     } catch (error) {
         resp.status(500).send(error.message)
     }
@@ -55,5 +58,6 @@ const getData = async (req, resp) => {
         resp.status(500).send(error.message)
     }
 }
+
 
 module.exports = { userRegister, userLogin, insertHoneydata, getData }

@@ -1,6 +1,6 @@
 import React from 'react'
-import './Cssfile/Body.css'
-import productImage from '../Components/Images/Ourproductimage.jpg'
+import '../Cssfile/Body.css'
+import productImage from '../Images/Ourproductimage.jpg'
 import Carouselslider from './Carousel'
 import { HiDotsHorizontal } from "react-icons/hi";
 import { GiBeehive } from "react-icons/gi";
@@ -8,7 +8,7 @@ import { GiBee } from "react-icons/gi";
 import { GiHoneyJar, GiHoneycomb, GiButterflyFlower, GiEmbrassedEnergy } from "react-icons/gi";
 import { GiTreeBeehive } from "react-icons/gi";
 import { Link } from 'react-router-dom';
-import Products from './Products';
+import Products from '../Pages/Products';
 
 
 const Body = () => {

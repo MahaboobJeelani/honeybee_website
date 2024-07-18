@@ -1,5 +1,5 @@
 import React from 'react'
-import './Cssfile/Rolepage.css'
+import '../Cssfile/Rolepage.css'
 import { RiAccountCircleFill } from "react-icons/ri";
 import { MdManageAccounts } from "react-icons/md";
 import { Link } from 'react-router-dom'
