@@ -20,11 +20,14 @@ const Body = () => {
             </div>
 
             <div className='ourservices'>
+
                 <div className='servicecontainer'>
+
                     <div className='contenttext'>
                         <h3>OUR SERVICES</h3>
                         <p>We harvest 100% pure, raw honey straight from the hive, ensuring the highest quality and natural sweetness.</p>
                     </div>
+
                     <div>
                         <div className='hexgonalcontainer'>
 
@@ -84,10 +87,12 @@ const Body = () => {
                 </div>
                 <div className='servicebtn'>
                     <Link to='/honey/products'>
-                        <button className="animated-button">View Products</button>
+                        <button className="button-btn viewproductsbtn">View Products</button>
                     </Link>
                 </div>
             </div>
+
+            {/* ==================================== */}
             <div className='products'>
                 <div className='bodyproduct'>
                     <h3>WHY CHOOSE OUR PRODUCTS</h3>
@@ -96,9 +101,11 @@ const Body = () => {
                     <div className='box'>
 
                         <div className='circleproductcontainer'>
+
                             <div className='circleproduct'>
                                 <GiBee className='giicon' />
                             </div>
+
                             <div className=''>
                                 <h5>Natural Bees</h5>
                                 <p>Discover the essential role and beauty of natural bees today.</p>

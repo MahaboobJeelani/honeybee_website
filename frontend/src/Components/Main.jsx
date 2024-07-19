@@ -14,7 +14,7 @@ const Main = () => {
                 <Body />
             </div>
             <div className='footer'>
-                <Footercom  />
+                <Footercom />
             </div>
         </div>
     )

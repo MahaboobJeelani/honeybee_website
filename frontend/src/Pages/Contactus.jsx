@@ -7,10 +7,23 @@ const Contactus = () => {
     let [email, setEmail] = useState('')
     let [phone, setPhone] = useState('')
     let [address, setAddress] = useState('')
+    let [state, setState] = useState(null)
 
-    const handleContact = () => {
-        axios.get(``)
-
+    const handleContact = (e) => {
+        e.preventDefault()
+        let payload = {
+            name: name,
+            email: email,
+            phone: phone,
+            address: address,
+            state: state
+        }
+        axios.post(`http://localhost:8081/createuser`, payload)
+            .then((res) => {
+                console.log("Data Created Successfully");
+            }).catch((error) => {
+                console.log(error.message);
+            })
     }
 
     return (
@@ -25,7 +38,7 @@ const Contactus = () => {
                 <input type="tel" placeholder='Enter Phone Number' value={phone} onChange={(e) => setPhone(e.target.value)} />
                 <input type="text" placeholder='Enter Address' value={address} onChange={(e) => setAddress(e.target.value)} />
 
-                <select>
+                <select onChange={(e) => setState(e.target.value)}>
                     <option>Select State</option>
                     <option>Karnataka</option>
                     <option>Kerala</option>
@@ -33,6 +46,7 @@ const Contactus = () => {
                     <option>Tamil Nadu</option>
                     <option>Hyderabad</option>
                 </select>
+
                 <div className='btncontainer'>
                     <button type='submit' className='contactbtn'>Submit</button>
                 </div>

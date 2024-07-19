@@ -1,4 +1,4 @@
-const { honeyModel, honeydata } = require('../Models/Model')
+const { honeyModel, honeydata, userDatas } = require('../Models/Model')
 
 const userRegister = async (req, resp) => {
     const { username, email, password, role } = req.body
@@ -60,4 +60,22 @@ const getData = async (req, resp) => {
 }
 
 
-module.exports = { userRegister, userLogin, insertHoneydata, getData }
+const userData = async (req, resp) => {
+    const { name, email, phone, address, state } = req.body
+    try {
+        const createUser = new userDatas({
+            name: name,
+            email: email,
+            phone: phone,
+            address: address,
+            state: state
+        })
+        await createUser.save()
+        resp.status(201).send("User Created")
+    } catch (error) {
+        resp.status(500).send(error.message)
+    }
+}
+
+
+module.exports = { userRegister, userLogin, insertHoneydata, getData, userData }

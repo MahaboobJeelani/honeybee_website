@@ -3,3 +3,9 @@
     background: rgb(36, 36, 36);
     padding: 0px 4rem;
 }
+
+@media screen and (max-width:480px) {
+    .footer {
+        padding: 0px 1rem;
+    }
+}
