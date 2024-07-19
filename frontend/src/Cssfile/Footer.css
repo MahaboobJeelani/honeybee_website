@@ -118,3 +118,119 @@ nav {
 .mailicon {
     font-size: medium;
 }
+
+
+@media screen and (max-width:480px) {
+    .footercontainer {
+        height: 50rem;
+        padding: 0rem;
+        background: rgb(36, 36, 36);
+        display: block;
+        position: relative;
+    }
+
+
+
+    .footerbox>p {
+        margin: 0px;
+    }
+
+    .footerbox>a {
+        text-decoration: none;
+    }
+
+    .footercollection {
+        display: block;
+        /* border: 2px solid white; */
+        padding-bottom: 0rem;
+        margin-bottom: 0rem;
+    }
+
+    .footerlogo {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .socialicons {
+        display: none;
+    }
+
+    .locationcontainer {
+        margin: 0px;
+        margin-bottom: 1rem;
+    }
+
+
+    .footercollection>h5 {
+        padding-bottom: 1rem;
+    }
+
+    .footercollection>p>a {
+        padding: -1rem;
+        line-height: 0px;
+        margin: 0rem;
+        text-decoration: none;
+        color: white;
+    }
+
+    .newletter {
+        display: flex;
+        height: 3rem;
+        width: 100%;
+        border: 2px solid white;
+    }
+
+    /* .locationicon {
+        font-size: 2rem;
+    } */
+
+    /* .locationcontainer {
+        display: flex;
+        margin-bottom: 2rem;
+    } */
+
+    /* .address {
+        padding-left: 0.7rem;
+        line-height: 2rem;
+    } */
+
+    /* .phoneicon {
+        font-size: 1.5rem;
+    } */
+
+    /* .locbox {
+        border: 2px solid white;
+    } */
+
+
+
+    /* .newletter>input {
+        height: 100%;
+        width: 80%;
+        border: 2px solid rgb(180, 180, 180);
+        padding-left: 1rem;
+    } */
+
+    /* .newletter>input:focus {
+        outline: none;
+    } */
+
+    /* .mailsendicon {
+        height: 100%;
+        width: 20%;
+        background: orange;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    } */
+
+    /* .mailicon {
+        font-size: medium;
+    } */
+}

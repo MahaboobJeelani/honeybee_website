@@ -12,9 +12,10 @@ import { MdOutlinePhoneAndroid, MdAttachEmail } from "react-icons/md";
 const Footercom = () => {
     return (
         <footer className='footercontainer'>
-            <div className='footerbox'>
-                <Link to='/'>
 
+            <div className='footerbox'>
+
+                <Link to='/'>
                     <span className='footerlogo'>
                         <GiDrippingHoney className='footerlogomi' />
                         HoneyBee
@@ -24,9 +25,11 @@ const Footercom = () => {
                         Farm
                     </span>
                 </Link>
+
                 <nav>
                     Experience our HoneyBee farm’s premium honey, made with dedication for your delight, health benefits, and everyday pleasure, bringing you pure, natural sweetness from our hives.
                 </nav>
+
                 <div className='socialicons'>
                     <ImFacebook2 className='icons' />
                     <FaInstagramSquare className='icons' />
@@ -66,6 +69,7 @@ const Footercom = () => {
                     <MdAttachEmail className='phoneicon' />
                     <span className='address'>contact@honeybee.gmail.com</span>
                 </div>
+                
                 <div className='newletter'>
                     <input type="email" placeholder='Email Address' />
                     <div className='mailsendicon'>
@@ -73,6 +77,7 @@ const Footercom = () => {
                     </div>
                 </div>
             </div>
+
         </footer>
     )
 }

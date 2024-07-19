@@ -6,25 +6,30 @@ import { FaCartShopping, FaXmark } from "react-icons/fa6";
 import { MdAccountCircle } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { IoIosMenu } from "react-icons/io";
+import { HiMiniXMark } from "react-icons/hi2";
 
 const Navbar = () => {
-    let [displayprofile, setDisplayprofile] = useState(false)
-    let [activelink, setActivelink] = useState('Home')
+    let [displayprofile, setDisplayprofile] = useState(false);
+    let [activelink, setActivelink] = useState('Home');
+    let [showMenu, setShowMenu] = useState(false);
 
     useEffect(() => {
-        let data = localStorage.getItem('login')
+        let data = localStorage.getItem('login');
         if (data) {
-            setDisplayprofile(data)
+            setDisplayprofile(data);
         }
-    }, [])
+    }, []);
 
     let handleClick = (link) => {
-        setActivelink(link)
+        setActivelink(link);
+    }
+
+    let toggleMenu = () => {
+        setShowMenu(!showMenu);
     }
 
     return (
-        <div className='navbar custom-navbar'>
-
+        <div className={`navbar custom-navbar ${showMenu ? 'show-menu' : ''}`}>
             <div className='logocontainer'>
                 <Link to='/'>
                     <span className='logosvg'>
@@ -33,31 +38,35 @@ const Navbar = () => {
                     </span>
                     <span className='farm'>Farm</span>
                 </Link>
+
+                <div className={`lines`} >
+                    <IoIosMenu className='menulines' onClick={toggleMenu} />
+                </div>
             </div>
 
-            <div className='lines'>
-                <IoIosMenu className='menulines' />
-                {/* <FaXmark className='xmar' /> */}
-            </div>
-
-            <div className='menulist'>
-                <ul>
-                    <li>
-                        <Link to='/' onClick={() => handleClick('Home')} className={activelink === 'Home' ? 'active-link' : 'inactive-link'}>Home</Link>
-                    </li>
-                    <li>
-                        <Link onClick={() => handleClick('About')} className={activelink === 'About' ? 'active-link' : 'inactive-link'}>About</Link>
-                    </li>
-                    <li>
-                        <Link to='/honey/products' onClick={() => handleClick('Products')} className={activelink === 'Products' ? 'active-link' : 'inactive-link'}>Products</Link>
-                    </li>
-                    <li>
-                        <Link onClick={() => handleClick('Blogs')} className={activelink === 'Blogs' ? 'active-link' : 'inactive-link'}>Blogs</Link>
-                    </li>
-                    <li>
-                        <Link to='/honey/contact' onClick={() => handleClick('Contact')} className={activelink === 'Contact' ? 'active-link' : 'inactive-link'}>Contact Us</Link>
-                    </li>
-                </ul>
+            <div className={`menulist ${showMenu ? 'show-menu' : ''}`}>
+                <div className='ullist'>
+                    <ul>
+                        <li>
+                            <Link to='/' onClick={() => handleClick('Home')} className={activelink === 'Home' ? 'active-link' : 'inactive-link'}>Home</Link>
+                        </li>
+                        <li>
+                            <Link onClick={() => handleClick('About')} className={activelink === 'About' ? 'active-link' : 'inactive-link'}>About</Link>
+                        </li>
+                        <li>
+                            <Link to='/honey/products' onFClick={() => handleClick('Products')} className={activelink === 'Products' ? 'active-link' : 'inactive-link'}>Products</Link>
+                        </li>
+                        <li>
+                            <Link onClick={() => handleClick('Blogs')} className={activelink === 'Blogs' ? 'active-link' : 'inactive-link'}>Blogs</Link>
+                        </li>
+                        <li>
+                            <Link to='/honey/contact' onClick={() => handleClick('Contact')} className={activelink === 'Contact' ? 'active-link' : 'inactive-link'}>Contact Us</Link>
+                        </li>
+                    </ul>
+                </div>
+                <div className='intimarkicon'>
+                    <HiMiniXMark />
+                </div>
             </div>
 
             <div className='logintextcontainer'>
@@ -80,7 +89,6 @@ const Navbar = () => {
                             </Link>
                         </div>
                     )}
-
             </div>
         </div>
     );

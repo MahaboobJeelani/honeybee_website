@@ -10,7 +10,7 @@ const CarouselSlider = () => {
     return (
         <div className='Carouselslider'>
             {/* showControls fade */}
-            <MDBCarousel fade className='carouselcontainer'>
+            {/* <MDBCarousel fade className='carouselcontainer'>
 
                 <MDBCarouselItem>
                     <h2 className='slidertext slidertwo'>
@@ -23,6 +23,7 @@ const CarouselSlider = () => {
                     </div>
                     <img src={SliderImg2} className='d-block w-100' alt='sliderone' />
                 </MDBCarouselItem>
+
 
                 <MDBCarouselItem className='sliderone'>
                     <h2 className='slidertext'>
@@ -38,6 +39,7 @@ const CarouselSlider = () => {
                     <img src={SliderOne} className='d-block w-100' alt='sliderone' />
                 </MDBCarouselItem>
 
+
                 <MDBCarouselItem>
                     <h2 className='slidertext'>
                         Finest Honey Products for Your Enjoyment.
@@ -47,12 +49,16 @@ const CarouselSlider = () => {
                             Discover our finest honey, crafted for your delight, health benefits, and sweet moments to savor, enjoy, and make every day special.
                         </p>
                         <Link to='/honey/products'>
-                            <button className="animated-button">View Products</button>
+                            <button className="animated">View Products</button>
                         </Link>
                     </div>
                     <img src={SliderImg3} className='d-block w-100' alt='sliderone' />
-                </MDBCarouselItem>
-            </MDBCarousel>
+                </MDBCarouselItem> */}
+
+
+
+            {/* </MDBCarousel> */}
+            
         </div>
     );
 }
