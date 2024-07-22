@@ -10,7 +10,7 @@ const CarouselSlider = () => {
     return (
         <div className='Carouselslider'>
             {/* showControls fade */}
-            {/* <MDBCarousel fade className='carouselcontainer'>
+            <MDBCarousel fade className='carouselcontainer'>
 
                 <MDBCarouselItem>
                     <h2 className='slidertext slidertwo'>
@@ -53,12 +53,9 @@ const CarouselSlider = () => {
                         </Link>
                     </div>
                     <img src={SliderImg3} className='d-block w-100' alt='sliderone' />
-                </MDBCarouselItem> */}
+                </MDBCarouselItem>
+            </MDBCarousel>
 
-
-
-            {/* </MDBCarousel> */}
-            
         </div>
     );
 }

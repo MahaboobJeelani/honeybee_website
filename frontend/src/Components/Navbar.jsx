@@ -29,7 +29,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className={`navbar custom-navbar ${showMenu ? 'show-menu' : ''}`}>
+        <div className='navbar custom-navbar'>
             <div className='logocontainer'>
                 <Link to='/'>
                     <span className='logosvg'>
@@ -44,27 +44,27 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div className={`menulist ${showMenu ? 'show-menu' : ''}`}>
+            <div className={`menulist ${showMenu ? 'show-menu' : 'hide-menu'}`}>
                 <div className='ullist'>
                     <ul>
                         <li>
                             <Link to='/' onClick={() => handleClick('Home')} className={activelink === 'Home' ? 'active-link' : 'inactive-link'}>Home</Link>
                         </li>
                         <li>
-                            <Link onClick={() => handleClick('About')} className={activelink === 'About' ? 'active-link' : 'inactive-link'}>About</Link>
+                            <Link to='/' onClick={() => handleClick('About')} className={activelink === 'About' ? 'active-link' : 'inactive-link'}>About</Link>
                         </li>
                         <li>
-                            <Link to='/honey/products' onFClick={() => handleClick('Products')} className={activelink === 'Products' ? 'active-link' : 'inactive-link'}>Products</Link>
+                            <Link to='/honey/products' onClick={() => handleClick('Products')} className={activelink === 'Products' ? 'active-link' : 'inactive-link'}>Products</Link>
                         </li>
                         <li>
-                            <Link onClick={() => handleClick('Blogs')} className={activelink === 'Blogs' ? 'active-link' : 'inactive-link'}>Blogs</Link>
+                            <Link to='/' onClick={() => handleClick('Blogs')} className={activelink === 'Blogs' ? 'active-link' : 'inactive-link'}>Blogs</Link>
                         </li>
                         <li>
                             <Link to='/honey/contact' onClick={() => handleClick('Contact')} className={activelink === 'Contact' ? 'active-link' : 'inactive-link'}>Contact Us</Link>
                         </li>
                     </ul>
                 </div>
-                <div className='intimarkicon'>
+                <div className='intimarkicon' onClick={toggleMenu}>
                     <HiMiniXMark />
                 </div>
             </div>
@@ -95,3 +95,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+

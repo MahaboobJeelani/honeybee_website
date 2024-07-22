@@ -17,5 +17,5 @@ mongoose.connect('mongodb://0.0.0.0:27017/honeydatabase')
 app.use('/', honeyRoutes)
 
 app.listen(process.env.PORT, () => {
-    console.log(`Server is running on the port ${process.env.PORT}`);
+    console.log(`Server is running on the port http://localhost:${process.env.PORT}/`);
 })

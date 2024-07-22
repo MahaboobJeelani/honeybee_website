@@ -8,7 +8,6 @@ import { GiBee } from "react-icons/gi";
 import { GiHoneyJar, GiHoneycomb, GiButterflyFlower, GiEmbrassedEnergy } from "react-icons/gi";
 import { GiTreeBeehive } from "react-icons/gi";
 import { Link } from 'react-router-dom';
-import Products from '../Pages/Products';
 
 
 const Body = () => {

@@ -1,8 +1,15 @@
 .productcontainer {
     height: 100%;
-    /* border: 2px solid green; */
     padding: 0rem 2rem;
+}
 
+.trendingproducts {
+    font-family: monospace;
+    font-weight: 700;
+    margin-top: 1rem;
+    padding: 0rem 8rem;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .productdetailcontainer {
@@ -16,7 +23,6 @@
     height: 10rem;
     width: 83%;
     margin: auto;
-    /* border: 2px solid green; */
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -43,6 +49,8 @@
     display: flex;
     border-radius: 10px;
     box-shadow: 2px 2px 0px rgb(111, 111, 111);
+    cursor: pointer;
+
 }
 
 .productdetails {
@@ -52,6 +60,8 @@
     border-radius: 2%;
     margin: .5rem;
     box-shadow: 0 0 5px rgb(218, 218, 218);
+    cursor: pointer;
+    /* border: 2px solid green; */
 }
 
 .populattitle {
@@ -72,7 +82,6 @@
     overflow: hidden;
     object-fit: contain;
     margin-bottom: 1rem;
-    /* border: 2px solid green; */
 }
 
 .productimg>img {
@@ -95,7 +104,6 @@
     align-items: center;
 }
 
-
 .rating {
     margin-left: .5rem;
     font-size: 1rem;
@@ -108,18 +116,15 @@
 .productdescription {
     height: 10%;
     margin: .6rem .5rem;
-    /* border: 2px solid red; */
     overflow: hidden;
     font-size: .8rem;
     font-family: Arial, Helvetica, sans-serif;
-
 }
 
 .carticon {
     display: flex;
     justify-content: space-between;
     margin: .5rem;
-    /* border: 2px solid red; */
     text-align: right;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

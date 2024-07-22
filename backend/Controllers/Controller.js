@@ -77,5 +77,15 @@ const userData = async (req, resp) => {
     }
 }
 
+const singleProduct = async (req, resp) => {
+    const id = req.params.id
+    try {
+        const findProduct = await honeydata.findById(id)
+        resp.status(200).send(findProduct)
+    } catch (error) {
+        resp.status(500).send(error.message)
+    }
+}
 
-module.exports = { userRegister, userLogin, insertHoneydata, getData, userData }
+
+module.exports = { userRegister, userLogin, insertHoneydata, getData, userData, singleProduct }

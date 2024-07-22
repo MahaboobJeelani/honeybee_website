@@ -41,13 +41,11 @@
     display: flex;
     justify-content: flex-end;
     align-items: baseline;
-    /* border: 2px solid red; */
 }
 
 .ullist {
     height: 100%;
     width: 100%;
-    /* border: 2px solid rebeccapurple; */
     display: flex;
 }
 
@@ -162,23 +160,18 @@
         grid-template-columns: 1fr auto;
         border-bottom: none;
         position: absolute;
-        /* border: 2px solid red; */
     }
 
     .logocontainer {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
         margin-left: 0;
         font-size: 1.7rem;
         width: 22rem;
-        /* border: 2px solid green; */
-        margin-left: -6rem;
+        margin-left: -5.5rem;
     }
 
     .lines {
-        border: 2px solid red;
         display: block;
+        margin-left: -1rem;
     }
 
     .logocontainer>a {
@@ -205,44 +198,55 @@
     }
 
     .menulist {
-        display: none;
-        position: absolute;
-        top: 5rem;
-        left: 0;
-        width: 100%;
         background: white;
-        padding: 1rem;
-        border-top: 1px solid grey;
+        position: absolute;
         z-index: 1;
     }
+
 
     .logintextcontainer {
         display: none;
     }
 
-    /* Show menu list when menulines is clicked */
     .navbar .show-menu .menulist {
         height: 13rem;
         display: grid;
-        flex-direction: column;
-        grid-template-columns: 1fr 1fr;
-        z-index: 1;
-        position: absolute;
-        top: 0;
-        border: 2px solid red;
-        flex-direction: column;
-        justify-content: space-around;
-
     }
 
+    .show-menu {
+        height: 30rem;
+        color: white;
+        text-align: center;
+        background: rgb(242, 242, 242);
+        position: absolute;
+        top: 0;
+        z-index: 1;
+    }
+
+    .hide-menu {
+        display: none;
+    }
+
+    .ullist {}
+
     .ullist>ul {
-        border: 2px solid green;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
     }
 
+    .ullist>ul>li {
+        width: 30rem;
+        padding: 1rem;
+        border-bottom: 1px solid grey;
+        margin-left: -10rem;
+
+    }
+
     .intimarkicon {
         display: block;
+        color: black;
+        font-size: 2rem;
+        margin-right: 2rem;
     }
 }

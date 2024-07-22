@@ -1,6 +1,5 @@
 .contactcontainer {
     height: 38.5rem;
-    /* border: 2px solid red; */
     background: rgb(240, 240, 240);
     display: flex;
     justify-content: center;
@@ -89,4 +88,16 @@
 
 .contactbtn:hover {
     box-shadow: 0 0 5px rgb(209, 209, 209);
+}
+
+
+@media screen and (max-width:480px) {
+    .contactcontainer {
+        height: 42rem;
+    }
+
+    .formdata {
+        width: 95%;
+    }
+
 }
