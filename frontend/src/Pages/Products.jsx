@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../Cssfile/Products.css';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { IoIosCart, IoIosStarOutline, IoMdStarHalf, IoMdStarOutline } from 'react-icons/io';
 import { FaRegStar, FaRupeeSign, FaStar } from 'react-icons/fa6';
 import { IoStarHalf } from "react-icons/io5";
 import { MdCurrencyRupee } from 'react-icons/md';

@@ -9,9 +9,10 @@ import { MdCurrencyRupee } from 'react-icons/md'
 
 const SingleProduct = () => {
     let [product, setProduct] = useState([])
-    let { id } = useParams()
     let [count, setCount] = useState(1)
     let [price, setPrice] = useState(300)
+
+    let { id } = useParams()
 
     useEffect(() => {
         axios.get(`http://localhost:8081/singleProduct/${id}`)
@@ -19,7 +20,8 @@ const SingleProduct = () => {
                 setProduct(res.data)
                 console.log(res.data);
             }).catch((error) => { console.log(error.message); })
-    }, [])
+    }, [id])
+    
     return (
         <div className='productContainer'>
             <div className='productdetail'>
@@ -31,7 +33,7 @@ const SingleProduct = () => {
                     <div className='buytext'>
 
                         <div className='buynow'>
-                            <Link to='/honey/buyproduct'>
+                            <Link to={`/honey/buyproduct`} state={{ id }}>
                                 <button>Buy Now</button>
                             </Link>
                         </div>

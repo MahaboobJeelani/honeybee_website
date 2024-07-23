@@ -1,0 +1,240 @@
+.buynowcontainer {
+    height: 88vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.buynowcart {
+    height: 85%;
+    width: 70%;
+    border: 2px solid rgb(94, 94, 94);
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    border-radius: 5px;
+}
+
+
+.continueshopping {
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1rem;
+    border-bottom: 1px solid purple;
+}
+
+.arrowicon {
+    font-size: 1.2rem;
+}
+
+.continueshopping>span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    padding-left: 1rem;
+    font-weight: 500;
+}
+
+.shoppingcartprice {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid green; */
+}
+
+
+.billproductcontainer {
+    height: 80%;
+    overflow: hidden;
+    scrollbar-width: none;
+    overflow-y: scroll;
+    margin: 0px 2rem;
+    background: none;
+    /* border: 2px solid green; */
+}
+
+#billproductdetails {
+    border-radius: 4px;
+    margin: 1rem;
+    box-shadow: 0px 0px 5px grey;
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    font-weight: 600;
+}
+
+.billimage {
+    border-radius: 3px;
+    overflow: hidden;
+    object-fit: contain;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+/* /////////////////////////////// */
+
+.shopcarticon {
+    font-size: 1.2rem;
+}
+
+.shoppingcartprice>p {
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: .7rem;
+}
+
+.card {
+    padding-top: 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carddetails {
+    height: 95%;
+    width: 95%;
+    background: rgb(56, 105, 235);
+    border-radius: 5px;
+    padding: 1rem 1rem 0rem 1rem;
+}
+
+.cardprofile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.textcard {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: .9rem;
+}
+
+.cardprofileicon {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.cardtype {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.cardtypetext {
+    margin-bottom: -.9rem;
+    font-size: .8rem;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cardholder {
+    margin-top: 1rem;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.cardholder>input {
+    margin: .7rem 0rem;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 3px;
+    font-size: 1rem;
+    padding-left: 1rem;
+    color: white;
+}
+
+.cardholder>input:focus {
+    outline: none;
+}
+
+.cardholder>input::placeholder {
+    color: rgb(214, 214, 214);
+    font-size: .9rem;
+    font-weight: 400;
+}
+
+.expirationcvv {
+    /* border: 2px solid white; */
+}
+
+.expirationcvv>input {
+    color: white;
+    border-radius: 3px;
+    width: 48.7%;
+    background: none;
+    border: 1px solid white;
+    padding-left: 1rem;
+    margin: .7rem 0rem;
+}
+
+.expirationcvv>input:first-child {
+    margin-right: .5rem;
+}
+
+.expirationcvv>input::placeholder {
+    color: rgb(214, 214, 214);
+    font-size: .9rem;
+    font-weight: 400;
+}
+
+.expirationcvv>input:focus {
+    outline: none;
+}
+
+#linesborder {
+    color: white;
+}
+
+.billingtext {
+    color: white;
+}
+
+.billcontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.billbtn {
+    background: linear-gradient(to right, rgb(115, 189, 234), rgb(115, 189, 234));
+    border: 1px solid white;
+    border-radius: 2px;
+    margin-top: 1rem;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px white;
+}
+
+.billbtntext {
+    padding: 0rem 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.billbtn>button {
+    background: transparent;
+    border: none;
+}
+
+.billbtn>button:focus {
+    outline: none;
+}
+
+.billbtntext>span {
+    color: white;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
