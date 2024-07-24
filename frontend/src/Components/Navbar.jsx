@@ -70,7 +70,7 @@ const Navbar = () => {
             </div>
 
             <div className='logintextcontainer'>
-                <FaCartShopping className='cart' />
+                <Link to='/honey/buyproduct'><FaCartShopping className='cart' /></Link>
                 {displayprofile ?
                     (
                         <div className='profilepic'>

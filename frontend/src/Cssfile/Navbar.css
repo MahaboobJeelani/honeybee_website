@@ -89,6 +89,9 @@
     cursor: pointer;
     padding-right: 2rem;
 }
+.logintextcontainer>a{
+    color: black;
+}
 
 .profilepic {
     height: 2.5rem;
