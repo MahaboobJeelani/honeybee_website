@@ -14,6 +14,9 @@ const Buynow = () => {
 
     const [product, setProduct] = useState([]);
     const [cartItems, setCartItems] = useState([]);
+    const [Subtotal, setSubtotal] = useState(null)
+
+    const shippingCarges = 50
 
     useEffect(() => {
         if (id) {
@@ -25,13 +28,21 @@ const Buynow = () => {
     }, [id]);
 
     useEffect(() => {
-        axios.get(`http://localhost:8081/user/66a09a34372786b1950510c6`)
-            .then((res) => { setCartItems(res.data.cart); })
+        axios.get(`http://localhost:8081/user/66a1dead30d2e041cdde8d91`)
+            .then((res) => {
+                setCartItems(res.data.cart);
+
+                const subtotal = res.data.cart.reduce((total, item) => {
+                    return total + (item.quantity * item.price)
+                }, 0)
+
+                setSubtotal(subtotal)
+            })
             .catch((error) => { console.log(error.message); });
     }, []);
 
     const deleteCartItem = (id) => {
-        axios.delete(`http://localhost:8081/deletecartitem/66a09a34372786b1950510c6/${id}`)
+        axios.delete(`http://localhost:8081/deletecartitem/66a1dead30d2e041cdde8d91/${id}`)
             .then(() => { setCartItems(cartItems.filter(item => item._id !== id)); })
             .catch((error) => { console.log(error); });
     };
@@ -40,6 +51,7 @@ const Buynow = () => {
         <div className='buynowcontainer'>
             <div className='buynowcart'>
                 <div className='containers'>
+
                     <div className='continueshopping'>
                         <FaArrowLeftLong className='arrowicon' onClick={() => navigate(-1)} /> <span>Continue Shopping</span>
                     </div>
@@ -56,14 +68,14 @@ const Buynow = () => {
                                     <div className='billimage'>
                                         <img src={product.imagelink} alt={product.name} width='80px' />
                                     </div>
-                                    <div className='billimage'>
+                                    <div className='billimage cartname'>
                                         <h6>{product.name}</h6>
                                     </div>
-                                    <div className='billimage'>
-                                        <p>1</p>
+                                    <div className='billimage cartquantity'>
+                                        <p>{product.quantity}</p>
                                     </div>
                                     <div className='billimage'>
-                                        <MdCurrencyRupee /> 300
+                                        <MdCurrencyRupee /> {product.price}
                                     </div>
                                     <div className='billimage'>
 
@@ -78,11 +90,11 @@ const Buynow = () => {
                                     <div className='cartimg'>
                                         <img src={cartItem.imagelink} alt={cartItem.name} width='80px' />
                                     </div>
-                                    <div className='cartimg'>
+                                    <div className='cartimg cartname'>
                                         <h6>{cartItem.name}</h6>
                                     </div>
-                                    <div className='cartimg'>
-                                        <p>1</p>
+                                    <div className='cartimg cartquantity'>
+                                        <p>{cartItem.quantity}</p>
                                     </div>
                                     <div className='cartimg'>
                                         <MdCurrencyRupee /> {cartItem.price}
@@ -116,14 +128,14 @@ const Buynow = () => {
                         </div>
                         <hr id='linesborder' />
                         <div className='billingtext'>
-                            <div className='billcontainer'><span>Subtotal</span><span><MdCurrencyRupee />300</span></div>
-                            <div className='billcontainer'><span>shipping</span><span><MdCurrencyRupee />50</span></div>
-                            <div className='billcontainer'><span>Total(incl.taxes)</span><span><MdCurrencyRupee />350</span></div>
+                            <div className='billcontainer'><span>Subtotal</span><span><MdCurrencyRupee />{Subtotal}</span></div>
+                            <div className='billcontainer'><span>shipping</span><span><MdCurrencyRupee />{shippingCarges}</span></div>
+                            <div className='billcontainer'><span>Total(incl.taxes)</span><span><MdCurrencyRupee />{Subtotal + shippingCarges}</span></div>
                         </div>
                         <div className='billbtn'>
                             <div className='billbtntext'>
                                 <span>Payment</span>
-                                <span><MdCurrencyRupee />350</span>
+                                <span><MdCurrencyRupee />{Subtotal + shippingCarges}</span>
                             </div>
                         </div>
                     </nav>

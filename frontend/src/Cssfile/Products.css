@@ -61,7 +61,6 @@
     margin: .5rem;
     box-shadow: 0 0 5px rgb(218, 218, 218);
     cursor: pointer;
-    /* border: 2px solid green; */
 }
 
 .populattitle {
@@ -114,11 +113,12 @@
 }
 
 .productdescription {
-    height: 10%;
+    height: 5rem;
     margin: .6rem .5rem;
     overflow: hidden;
     font-size: .8rem;
     font-family: Arial, Helvetica, sans-serif;
+    /* border: 2px solid red; */
 }
 
 .carticon {
@@ -127,15 +127,23 @@
     margin: .5rem;
     text-align: right;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    display: flex;
 }
 
-.carticon>button {
+.carticon>button, .productbtn {
     width: 100%;
     background: transparent;
     border: 2px solid orange;
 }
 
-.carticon>button:first-child {
+.productbtn>button {
+    width: 100%;
+    background: transparent;
+    border: none;
+}
+
+.productbtn:first-child {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
@@ -143,4 +151,5 @@
 .carticon>button:last-child {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+
 }

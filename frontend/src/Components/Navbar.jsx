@@ -12,6 +12,7 @@ const Navbar = () => {
     let [displayprofile, setDisplayprofile] = useState(false);
     let [activelink, setActivelink] = useState('Home');
     let [showMenu, setShowMenu] = useState(false);
+    let [profile, setProfile] = useState(false);
 
     useEffect(() => {
         let data = localStorage.getItem('login');
@@ -26,6 +27,11 @@ const Navbar = () => {
 
     let toggleMenu = () => {
         setShowMenu(!showMenu);
+    }
+
+    let profiledisplay = () => {
+        // setProfile(!profile)
+        console.log(profile);
     }
 
     return (
@@ -75,7 +81,7 @@ const Navbar = () => {
                     (
                         <div className='profilepic'>
                             <Link>
-                                <MdAccountCircle className='profileicon' />
+                                <MdAccountCircle className='profileicon' onClick={profiledisplay} />
                             </Link>
                         </div>
                     ) :
@@ -89,8 +95,22 @@ const Navbar = () => {
                             </Link>
                         </div>
                     )}
+                <div className={`${profile ? 'profiledisplay' : 'profilehide'}`}>
+                    <div className='profilecontainer'>
+                        <div className='profiletext'>
+                            <CgProfile />
+                            <p>Edit Profile</p>
+                        </div>
+                        <div className='profiletext'>
+                            <p>Help & Support</p>
+                        </div>
+                        <div className='profiletext'>
+                            <p>Logout</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </div >
     );
 }
 

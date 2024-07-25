@@ -94,7 +94,6 @@ const cartItems = async (req, resp) => {
     try {
         const user = await honeyModel.findById(userid)
         const product = await honeydata.findById(productid)
-        console.log(productid);
         user.cart.push(product)
         await user.save()
         resp.status(200).send(user)
@@ -114,25 +113,24 @@ const getCartItems = async (req, resp) => {
 }
 
 
-const removeCartItem = async (req, res) => {
-    const { userid, productid } = req.params;
-
+const removeCartItem = async (req, resp) => {
+    const { userid, productid } = req.params
     try {
-        const user = await honeyModel.findById(userid);
+        const user = await honeyModel.findById(userid)
 
-        if (!user) {
-            return res.status(400).send("User not found");
-        }
+        const cart = user.cart
 
-        user.cart = user.cart.filter(item => item._id.toString() !== productid);
-
-        await user.save();
-
-        res.status(200).send('Item deleted successfully');
+        cart.map(async (item) => {
+            if (item._id.toString() === productid) {
+                await item.deleteOne({ productid })
+            }
+        })
+        await user.save()
+        resp.send(user)
     } catch (error) {
-        res.status(500).send(error.message);
+        resp.status(500).send(error.message)
     }
-};
+}
 
 
 module.exports = { userRegister, userLogin, insertHoneydata, getData, userData, singleProduct, cartItems, getCartItems, removeCartItem }

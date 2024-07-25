@@ -7,7 +7,6 @@
 }
 
 .footerbox {
-    /* border: 2px solid white; */
     padding-top: 2rem;
     color: white;
 }
@@ -43,7 +42,6 @@ nav {
     display: flex;
     justify-content: space-evenly;
     margin: 2rem 0px;
-    /* border: 2px solid white; */
 }
 
 .icons {
@@ -141,7 +139,6 @@ nav {
 
     .footercollection {
         display: block;
-        /* border: 2px solid white; */
         padding-bottom: 0rem;
         margin-bottom: 0rem;
     }
@@ -184,53 +181,4 @@ nav {
         width: 100%;
         border: 2px solid white;
     }
-
-    /* .locationicon {
-        font-size: 2rem;
-    } */
-
-    /* .locationcontainer {
-        display: flex;
-        margin-bottom: 2rem;
-    } */
-
-    /* .address {
-        padding-left: 0.7rem;
-        line-height: 2rem;
-    } */
-
-    /* .phoneicon {
-        font-size: 1.5rem;
-    } */
-
-    /* .locbox {
-        border: 2px solid white;
-    } */
-
-
-
-    /* .newletter>input {
-        height: 100%;
-        width: 80%;
-        border: 2px solid rgb(180, 180, 180);
-        padding-left: 1rem;
-    } */
-
-    /* .newletter>input:focus {
-        outline: none;
-    } */
-
-    /* .mailsendicon {
-        height: 100%;
-        width: 20%;
-        background: orange;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-    } */
-
-    /* .mailicon {
-        font-size: medium;
-    } */
 }
