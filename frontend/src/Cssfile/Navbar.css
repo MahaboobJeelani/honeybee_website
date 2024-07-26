@@ -113,7 +113,7 @@
 .loginlink {
     text-decoration: none;
     color: black;
-    border: 2px solid green;
+    /* border: 2px solid green; */
 }
 
 .loginlink:hover {
@@ -160,14 +160,15 @@
 }
 
 .profiledisplay {
-    height: 12.5rem;
+    height: 9rem;
     width: 12rem;
     position: absolute;
     top: 4rem;
     display: block;
-    border: 2px solid red;
     box-shadow: 0px 0px 10px grey;
     border-radius: 10px;
+    background: white;
+    z-index: 1;
 }
 
 .profilecontainer {
@@ -178,10 +179,34 @@
 }
 
 .profiletext {
-    height: 4rem;
-    padding: 1rem;
+    height: 3rem;
+    padding: .5rem;
     display: flex;
-    /* border: 2px solid green; */
+}
+
+.profiletext>p {
+    width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+}
+
+.profiletext>p:first-child {
+    width: 1.5rem;
+    margin-right: 1rem;
+}
+
+.profiletext>p:last-child>a {
+    text-decoration: none;
+    color: rgb(73, 73, 73);
+}
+
+.profiletext>p>.profileiconnav {
+    font-size: 1.4rem;
+    color: rgb(73, 73, 73);
 }
 
 

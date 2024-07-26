@@ -1,4 +1,5 @@
 const { honeyModel, honeydata, userDatas } = require('../Models/Model')
+const jwt = require('jsonwebtoken')
 
 const userRegister = async (req, resp) => {
     const { username, email, password, role } = req.body
@@ -27,9 +28,9 @@ const userLogin = async (req, resp) => {
         } else if (findUser.password !== password) {
             resp.status(404).send('Password is Invalid')
         } else {
-            resp.status(200).json({ "login": true, message: 'Login Successfully' })
+            const token = jwt.sign({ findUser }, process.env.SECRET_KEY, { expiresIn: '2h' })
+            resp.status(200).json({ token, login: true, message: 'Login Successfully' })
         }
-
     } catch (error) {
         resp.status(500).send(error.message)
     }
@@ -117,9 +118,7 @@ const removeCartItem = async (req, resp) => {
     const { userid, productid } = req.params
     try {
         const user = await honeyModel.findById(userid)
-
         const cart = user.cart
-
         cart.map(async (item) => {
             if (item._id.toString() === productid) {
                 await item.deleteOne({ productid })

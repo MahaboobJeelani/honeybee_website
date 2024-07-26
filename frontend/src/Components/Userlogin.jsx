@@ -18,9 +18,8 @@ const Login = () => {
         }
         axios.post(`http://localhost:8081/login`, payload)
             .then((res) => {
-                console.log(res.data.login);
                 navigate('/')
-                localStorage.setItem("login", res.data.login)
+                localStorage.setItem("token", res.data.token)
             }).catch((error) => {
                 console.log(error.message);
             })

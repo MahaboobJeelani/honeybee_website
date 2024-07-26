@@ -132,6 +132,7 @@
 }
 
 .containers {
+    z-index: 1;
     height: 30.9rem;
     /* border: 2px solid red; */
 }

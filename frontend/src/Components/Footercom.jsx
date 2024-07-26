@@ -48,11 +48,11 @@ const Footercom = () => {
 
             <div className='footerbox footercollection'>
                 <h5>EXPLORE</h5>
-                <p><Link>Home</Link></p>
-                <p><Link>About</Link></p>
-                <p><Link>Products</Link></p>
-                <p><Link>Blog</Link></p>
-                <p><Link>Contact</Link></p>
+                <p><Link to='/'>Home</Link></p>
+                <p><Link to='/'>About</Link></p>
+                <p><Link to='/honey/products'>Products</Link></p>
+                <p><Link to='/'>Blog</Link></p>
+                <p><Link to='/honey/contact'>Contact</Link></p>
             </div>
 
             <div className='footerbox footercollection'>
@@ -69,7 +69,7 @@ const Footercom = () => {
                     <MdAttachEmail className='phoneicon' />
                     <span className='address'>contact@honeybee.gmail.com</span>
                 </div>
-                
+
                 <div className='newletter'>
                     <input type="email" placeholder='Email Address' />
                     <div className='mailsendicon'>

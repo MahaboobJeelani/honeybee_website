@@ -1,5 +1,5 @@
 import '../src/App.css'
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Register from "./Components/Register";
 import Rolepage from "./Components/Rolepage";
 import Userregister from "./Components/Userregister";
@@ -10,12 +10,45 @@ import Errorpage from './Components/Errorpage';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Subroutes from './Components/Subroutes';
+import { useEffect } from 'react';
+import { jwtDecode } from 'jwt-decode';
 
 function App() {
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    const expiretime = () => {
+      const accessToken = localStorage.getItem('token')
+      console.log(accessToken);
+
+      try {
+        if (accessToken) {
+          const jwtDecodeToken = jwtDecode(accessToken)
+          const expireToken = jwtDecodeToken.exp * 1000
+          const iatToken = Date.now();
+          if (expireToken < iatToken) {
+            localStorage.removeItem('token')
+            navigate('/')
+          } else {
+            setTimeout(() => {
+              localStorage.removeItem('token')
+              navigate('/')
+            }, expireToken - iatToken)
+          }
+        }
+      } catch (error) {
+        console.log(error.message);
+        localStorage.removeItem('token')
+        navigate('/')
+      }
+    }
+    expiretime()
+  }, [navigate])
   return (
     <div className="apppage">
       <Routes>
-        <Route path="/" element={<Main />} />
+        {/* <Route path="/" element={<Main />} /> */}
+        <Route path='/' Component={Main} />
         <Route path="/role" element={<Rolepage />} />
         <Route path="/adminregister" element={<Register />} />
         <Route path="/userregister" element={<Userregister />} />

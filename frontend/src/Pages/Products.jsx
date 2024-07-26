@@ -14,6 +14,8 @@ const Products = () => {
 
   let navigate = useNavigate();
 
+
+
   useEffect(() => {
     axios.get(`http://localhost:8081/honeydata`)
       .then((res) => {
@@ -46,7 +48,7 @@ const Products = () => {
       <div className='popularproduct'>
         {product.map((res) => {
           return (
-            <div className='popularcontainer' key={res.id}>
+            <div className='popularcontainer' key={res.id} >
               <div className='popularimage'>
                 <img src={`${res.imagelink}`} alt="products" width='100px' />
               </div>

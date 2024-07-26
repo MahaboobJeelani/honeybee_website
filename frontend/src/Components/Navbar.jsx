@@ -2,20 +2,21 @@ import React, { useEffect, useState } from 'react';
 import '../Cssfile/Navbar.css'
 import { GiDrippingHoney } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
-import { FaCartShopping, FaXmark } from "react-icons/fa6";
+import { FaCartShopping } from "react-icons/fa6";
 import { MdAccountCircle } from "react-icons/md";
 import { Link } from 'react-router-dom';
-import { IoIosMenu } from "react-icons/io";
+import { IoIosMenu, IoMdHelpCircle } from "react-icons/io";
 import { HiMiniXMark } from "react-icons/hi2";
+import { RiLogoutCircleRFill } from "react-icons/ri";
 
 const Navbar = () => {
-    let [displayprofile, setDisplayprofile] = useState(false);
+    let [displayprofile, setDisplayprofile] = useState(null);
     let [activelink, setActivelink] = useState('Home');
     let [showMenu, setShowMenu] = useState(false);
     let [profile, setProfile] = useState(false);
 
     useEffect(() => {
-        let data = localStorage.getItem('login');
+        let data = localStorage.getItem('token');
         if (data) {
             setDisplayprofile(data);
         }
@@ -30,8 +31,11 @@ const Navbar = () => {
     }
 
     let profiledisplay = () => {
-        // setProfile(!profile)
-        console.log(profile);
+        setProfile(!profile)
+    }
+
+    const logout = () => {
+        localStorage.removeItem('token')
     }
 
     return (
@@ -95,17 +99,20 @@ const Navbar = () => {
                             </Link>
                         </div>
                     )}
+
                 <div className={`${profile ? 'profiledisplay' : 'profilehide'}`}>
                     <div className='profilecontainer'>
                         <div className='profiletext'>
-                            <CgProfile />
-                            <p>Edit Profile</p>
+                            <p><MdAccountCircle className='profileiconnav' /></p>
+                            <p><Link to='/honey/profile'>Edit Profile</Link></p>
                         </div>
                         <div className='profiletext'>
-                            <p>Help & Support</p>
+                            <p><IoMdHelpCircle className='profileiconnav' /></p>
+                            <p><Link>Help & Support</Link></p>
                         </div>
                         <div className='profiletext'>
-                            <p>Logout</p>
+                            <p><RiLogoutCircleRFill className='profileiconnav' /></p>
+                            <p onClick={logout}><Link to='/'>Logout</Link></p>
                         </div>
                     </div>
                 </div>
