@@ -115,6 +115,7 @@
     overflow-y: scroll;
 }
 
+
 .cartdetails {
     margin: 1rem;
     box-shadow: 0px 0px 5px grey;
@@ -285,11 +286,10 @@
         margin: 0rem;
         display: block;
         grid-template-columns: none;
-        /* border: 2px solid red; */
+        border: 2px solid red;
     }
 
     .shoppingcartprice {
-        height: 3rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -305,10 +305,7 @@
     }
 
     .billproductcontainer {
-        height: 80%;
-        width: 100%;
         margin: 0px 0rem;
-        /* border: 2px solid red; */
     }
 
     #billproductdetails {
@@ -329,12 +326,17 @@
         width: 7rem;
     }
 
-    .billprce {
+    .billprce,
+    .cartprice {
         width: 3rem;
     }
 
     .cartcontainer {
-        height: 100%;
+        /* border: 2px solid purple; */
+    }
+
+    .cartcont{
+        height: 0%;
     }
 
     .cartdetails {
@@ -343,148 +345,14 @@
         grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
         margin: .6rem;
         border-radius: 5px;
-        /* border: 2px solid purple; */
+        border: 2px solid purple;
     }
 
-    /* .containers {
-        z-index: 1;
-        height: 30.9rem;
-    } */
-
-    /* .card {
+    .card {
         padding-top: 0rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    } */
+    }
 
-    /* .carddetails {
-        height: 95%;
-        width: 95%;
-        background: rgb(56, 105, 235);
-        border-radius: 5px;
-        padding: 0.5rem 1rem 0rem 1rem;
-        color: white;
-    } */
-
-    /* .cardprofile {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    } */
-
-    /* .textcard {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: .9rem;
-    } */
-
-    /* .cardprofileicon {
-        font-size: 1.5rem;
-    } */
-
-    /* .cardtype {
-        font-size: 1.5rem;
-    } */
-
-    /* .cardtypetext {
-        margin-bottom: -.9rem;
-        font-size: .8rem;
-        font-family: Arial, Helvetica, sans-serif;
-    } */
-
-    /* .cardholder {
-        margin-top: 1rem;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        flex-direction: column;
-    } */
-
-    /* .cardholder>input {
-        margin: .7rem 0rem;
-        background: transparent;
-        border: 1px solid white;
-        border-radius: 3px;
-        font-size: 1rem;
-        padding-left: 1rem;
-        color: white;
-    } */
-
-    /* .cardholder>input:focus {
-        outline: none;
-    } */
-
-    /* .cardholder>input::placeholder {
-        color: rgb(214, 214, 214);
-        font-size: .9rem;
-        font-weight: 400;
-    } */
-
-    /* .expirationcvv {
-        display: flex;
-        gap: 0.5rem;
-    } */
-
-    /* .expirationcvv>input {
-        color: white;
-        border-radius: 3px;
-        width: 48.7%;
-        background: none;
-        border: 1px solid white;
-        padding-left: 1rem;
-        margin: .7rem 0rem;
-    } */
-
-    /* .expirationcvv>input::placeholder {
-        color: rgb(214, 214, 214);
-        font-size: .9rem;
-        font-weight: 400;
-    } */
-
-    /* .expirationcvv>input:focus {
-        outline: none;
-    } */
-
-    /* #linesborder {
-        color: white;
-    } */
-
-    /* .billingtext {
-        color: white;
-    } */
-
-    /* .billcontainer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    } */
-
-    /* .billbtn {
-        background: linear-gradient(to right, rgb(115, 189, 234), rgb(115, 189, 234));
-        border: 1px solid white;
-        border-radius: 2px;
-        margin-top: 1rem;
-        cursor: pointer;
-    } */
-
-    /* .billbtntext {
-        padding: 0rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        color: rgb(0, 0, 0);
-        font-weight: 600;
-    } */
-
-    /* .billbtn>button {
-        background: transparent;
-        border: none;
-        color: white;
-        font-size: 1rem;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 700;
-    } */
-
-    /* .billbtn>button:focus {
-        outline: none;
-    } */
+    .carddetails {
+        display: block;
+    }
 }

@@ -101,7 +101,7 @@ const Buynow = () => {
                             )}
                         </div>
 
-                        <div className='cartcontainer'>
+                        <div className={`cartcontainer`}>
                             {cartItems.map((cartItem) => (
                                 <div className='cartdetails' key={cartItem._id}>
                                     <div className='cartimg'>
@@ -113,7 +113,7 @@ const Buynow = () => {
                                     <div className='cartimg cartquantity'>
                                         <p>{cartItem.quantity}</p>
                                     </div>
-                                    <div className='cartimg'>
+                                    <div className='cartimg cartprice'>
                                         <MdCurrencyRupee /> {cartItem.price}
                                     </div>
                                     <div className='cartimg'>
