@@ -6,17 +6,29 @@ import { CgProfile } from 'react-icons/cg';
 import { MdCurrencyRupee, MdOutlineDeleteForever } from 'react-icons/md';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
+
 
 const Buynow = () => {
+    const [product, setProduct] = useState([]);
+    const [cartItems, setCartItems] = useState([]);
+    const [Subtotal, setSubtotal] = useState(0)
+
     const navigate = useNavigate();
     const location = useLocation();
     const { id } = location.state || {};
 
-    const [product, setProduct] = useState([]);
-    const [cartItems, setCartItems] = useState([]);
-    const [Subtotal, setSubtotal] = useState(null)
 
-    const shippingCarges = 50
+    const defaultShippingCarges = 50
+
+    let userData = localStorage.getItem('token')
+    let decodeToken = jwtDecode(userData)
+    const userId = decodeToken.findUser._id
+
+
+
+    const newSubTotal = cartItems.length === 0 ? (product.length === 0 ? 0 : defaultShippingCarges) : defaultShippingCarges;
+    const productPrice = product.length === 0 ? 0 : product.price
 
     useEffect(() => {
         if (id) {
@@ -28,24 +40,28 @@ const Buynow = () => {
     }, [id]);
 
     useEffect(() => {
-        axios.get(`http://localhost:8081/user/66a1dead30d2e041cdde8d91`)
+        axios.get(`http://localhost:8081/user/${userId}`)
             .then((res) => {
                 setCartItems(res.data.cart);
-
-                const subtotal = res.data.cart.reduce((total, item) => {
-                    return total + (item.quantity * item.price)
-                }, 0)
-
-                setSubtotal(subtotal)
             })
             .catch((error) => { console.log(error.message); });
-    }, []);
+    }, [Subtotal]);
+
+    useEffect(() => {
+        const subtotal = cartItems.reduce((total, item) => {
+            return total + (item.quantity * item.price)
+        }, 0)
+        setSubtotal(subtotal + productPrice)
+    }, [cartItems])
 
     const deleteCartItem = (id) => {
-        axios.delete(`http://localhost:8081/deletecartitem/66a1dead30d2e041cdde8d91/${id}`)
-            .then(() => { setCartItems(cartItems.filter(item => item._id !== id)); })
+        axios.delete(`http://localhost:8081/deletecartitem/${userId}/${id}`)
+            .then((res) => {
+                setCartItems(cartItems.filter(item => item._id !== id));
+            })
             .catch((error) => { console.log(error); });
     };
+
 
     return (
         <div className='buynowcontainer'>
@@ -127,15 +143,17 @@ const Buynow = () => {
                             <input type="text" placeholder='CVV' />
                         </div>
                         <hr id='linesborder' />
+
                         <div className='billingtext'>
                             <div className='billcontainer'><span>Subtotal</span><span><MdCurrencyRupee />{Subtotal}</span></div>
-                            <div className='billcontainer'><span>shipping</span><span><MdCurrencyRupee />{shippingCarges}</span></div>
-                            <div className='billcontainer'><span>Total(incl.taxes)</span><span><MdCurrencyRupee />{Subtotal + shippingCarges}</span></div>
+                            <div className='billcontainer'><span>shipping</span><span><MdCurrencyRupee />{newSubTotal}</span></div>
+                            <div className='billcontainer'><span>Total(incl.taxes)</span><span><MdCurrencyRupee />{Subtotal + newSubTotal}</span></div>
                         </div>
+
                         <div className='billbtn'>
                             <div className='billbtntext'>
                                 <span>Payment</span>
-                                <span><MdCurrencyRupee />{Subtotal + shippingCarges}</span>
+                                <span><MdCurrencyRupee />{Subtotal + newSubTotal}</span>
                             </div>
                         </div>
                     </nav>

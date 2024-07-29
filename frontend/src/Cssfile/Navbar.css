@@ -113,7 +113,6 @@
 .loginlink {
     text-decoration: none;
     color: black;
-    /* border: 2px solid green; */
 }
 
 .loginlink:hover {
@@ -221,18 +220,22 @@
         grid-template-columns: 1fr auto;
         border-bottom: none;
         position: absolute;
+        /* border: 2px solid red; */
     }
 
     .logocontainer {
         margin-left: 0;
         font-size: 1.7rem;
-        width: 22rem;
-        margin-left: -5.5rem;
+        width: 20rem;
+        margin-left: -5rem;
+        /* border: 2px solid purple; */
     }
 
     .lines {
         display: block;
-        margin-left: -1rem;
+        /* width: 20%; */
+        margin-left: -5rem;
+        /* border: 2px solid red; */
     }
 
     .logocontainer>a {

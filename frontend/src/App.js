@@ -1,4 +1,8 @@
 import '../src/App.css'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Subroutes from './Components/Subroutes';
+
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Register from "./Components/Register";
 import Rolepage from "./Components/Rolepage";
@@ -7,36 +11,38 @@ import Main from "./Components/Main";
 import Adminlogin from "./Components/Adminlogin";
 import Userlogin from './Components/Userlogin'
 import Errorpage from './Components/Errorpage';
-
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Subroutes from './Components/Subroutes';
 import { useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 
-function App() {
+
+const App = () => {
   let navigate = useNavigate();
+
+  const accessToken = localStorage.getItem('token')
 
   useEffect(() => {
     const expiretime = () => {
-      const accessToken = localStorage.getItem('token')
-      console.log(accessToken);
 
       try {
         if (accessToken) {
           const jwtDecodeToken = jwtDecode(accessToken)
           const expireToken = jwtDecodeToken.exp * 1000
           const iatToken = Date.now();
+
           if (expireToken < iatToken) {
             localStorage.removeItem('token')
             navigate('/')
-          } else {
+          }
+          else {
             setTimeout(() => {
               localStorage.removeItem('token')
               navigate('/')
             }, expireToken - iatToken)
           }
         }
-      } catch (error) {
+      }
+
+      catch (error) {
         console.log(error.message);
         localStorage.removeItem('token')
         navigate('/')
@@ -44,11 +50,12 @@ function App() {
     }
     expiretime()
   }, [navigate])
+
+
   return (
     <div className="apppage">
       <Routes>
-        {/* <Route path="/" element={<Main />} /> */}
-        <Route path='/' Component={Main} />
+        <Route path="/" element={<Main />} />
         <Route path="/role" element={<Rolepage />} />
         <Route path="/adminregister" element={<Register />} />
         <Route path="/userregister" element={<Userregister />} />

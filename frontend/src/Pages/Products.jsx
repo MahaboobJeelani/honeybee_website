@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../Cssfile/Products.css';
-import { FaRegStar, FaRupeeSign, FaStar } from 'react-icons/fa6';
+import { FaRegStar, FaStar } from 'react-icons/fa6';
 import { IoStarHalf } from "react-icons/io5";
 import { MdCurrencyRupee } from 'react-icons/md';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +13,7 @@ const Products = () => {
   let [product, setProduct] = useState([]);
 
   let navigate = useNavigate();
+  let token = localStorage.getItem('token')
 
 
 
@@ -20,7 +21,7 @@ const Products = () => {
     axios.get(`http://localhost:8081/honeydata`)
       .then((res) => {
         setProduct(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       }).catch((error) => {
         console.log(error.message);
       });
@@ -30,7 +31,8 @@ const Products = () => {
   const addToCart = (id) => {
     axios.put(`http://localhost:8081/cartitems/66a1dead30d2e041cdde8d91/${id}`)
       .then((res) => {
-        toast.success(`Item added successfully`)
+        const itemName = res.data.cart.find(item => item._id === id)
+        toast.success(`${itemName.name} Item added successfully`)
       })
       .catch((error) => console.log(error.message));
   };
@@ -54,7 +56,7 @@ const Products = () => {
               </div>
               <div className='populattitle'>
                 {res.name}
-                <span><MdCurrencyRupee />300</span>
+                <span><MdCurrencyRupee />{res.price}</span>
                 <div className='rating'>
                   <FaStar className='star' /><FaStar className='star' /><FaStar className='star' /><IoStarHalf className='star' /> <FaRegStar className='star' />
                 </div>
@@ -68,26 +70,35 @@ const Products = () => {
         {product.map((res) => {
           return (
             <div className='productdetails' key={res._id}>
+
               <div className='divcontainer' onClick={() => singleProduct(res._id)}>
 
                 <div className='product productimg'>
                   <img src={`${res.imagelink}`} alt="products" width='200px' />
                 </div>
                 <div className='title'>
-                  {res.name} <span><MdCurrencyRupee />300</span>
+                  {res.name} <span><MdCurrencyRupee />{res.price}</span>
                 </div>
+
                 <div className='rating'>
                   <FaStar className='star' /><FaStar className='star' /><FaStar className='star' /><IoStarHalf className='star' /> <FaRegStar className='star' />
                 </div>
+
                 <div className='productdescription'>
                   {res.description}
                 </div>
 
               </div>
+
               <div className='carticon'>
-                <Link to='/honey/buyproduct' className='productbtn'><button >Buy Now</button></Link>
+                {
+                  token === null ?
+                    <Link to='/honey/products' className='productbtn'><button >Buy Now</button></Link> :
+                    <Link to='/honey/buyproduct' className='productbtn'><button >Buy Now</button></Link>
+                }
                 <button onClick={() => addToCart(res._id)}>Add to cart</button>
               </div>
+
             </div>
           );
         })}

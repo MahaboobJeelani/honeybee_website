@@ -1,13 +1,14 @@
 import '../Cssfile/Adminlogin.css'
 import axios from 'axios'
 import React, { useState } from 'react'
-
 import { Link, useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
 
 const Login = () => {
     let [email, setEmail] = useState('fake@gmail.com')
     let [password, setPassword] = useState('fake@')
 
+    // let { login } = useAuth()
     let navigate = useNavigate()
 
     let loginAdmin = (e) => {
@@ -18,8 +19,10 @@ const Login = () => {
         }
         axios.post(`http://localhost:8081/login`, payload)
             .then((res) => {
-                navigate('/')
                 localStorage.setItem("token", res.data.token)
+                // login()
+                toast.success('Login Successfully');
+                navigate('/')
             }).catch((error) => {
                 console.log(error.message);
             })
@@ -36,7 +39,7 @@ const Login = () => {
                 <button type='submit'>submit</button>
                 <p>Don't have account <Link to='/adminregister'>Register</Link></p>
             </form>
-
+            <ToastContainer />
         </div>
     )
 }

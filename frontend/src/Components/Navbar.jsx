@@ -15,8 +15,8 @@ const Navbar = () => {
     let [showMenu, setShowMenu] = useState(false);
     let [profile, setProfile] = useState(false);
 
+    let data = localStorage.getItem('token');
     useEffect(() => {
-        let data = localStorage.getItem('token');
         if (data) {
             setDisplayprofile(data);
         }
@@ -39,7 +39,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className='navbar custom-navbar'>
+        <div className='navbar custom-navbar' >
             <div className='logocontainer'>
                 <Link to='/'>
                     <span className='logosvg'>
@@ -80,7 +80,7 @@ const Navbar = () => {
             </div>
 
             <div className='logintextcontainer'>
-                <Link to='/honey/buyproduct'><FaCartShopping className='cart' /></Link>
+                {data === null ? <Link to='/'><FaCartShopping className='cart' /></Link> : <Link to='/honey/buyproduct'><FaCartShopping className='cart' /></Link>}
                 {displayprofile ?
                     (
                         <div className='profilepic'>
@@ -102,18 +102,22 @@ const Navbar = () => {
 
                 <div className={`${profile ? 'profiledisplay' : 'profilehide'}`}>
                     <div className='profilecontainer'>
-                        <div className='profiletext'>
+
+                        <div className='profiletext' onClick={profiledisplay}>
                             <p><MdAccountCircle className='profileiconnav' /></p>
                             <p><Link to='/honey/profile'>Edit Profile</Link></p>
                         </div>
-                        <div className='profiletext'>
+
+                        <div className='profiletext' onClick={profiledisplay}>
                             <p><IoMdHelpCircle className='profileiconnav' /></p>
                             <p><Link>Help & Support</Link></p>
                         </div>
-                        <div className='profiletext'>
+
+                        <div className='profiletext' onClick={profiledisplay}>
                             <p><RiLogoutCircleRFill className='profileiconnav' /></p>
                             <p onClick={logout}><Link to='/'>Logout</Link></p>
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -1,8 +1,7 @@
-
 import axios from 'axios';
 import '../Cssfile/Singleproduct.css';
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { FaRegStar, FaStar } from 'react-icons/fa6';
 import { IoStarHalf } from 'react-icons/io5';
 import { MdCurrencyRupee } from 'react-icons/md';
@@ -16,6 +15,7 @@ const SingleProduct = () => {
     let [price, setPrice] = useState(300);
 
     let { id } = useParams();
+    let data = localStorage.getItem('token')
 
     useEffect(() => {
         axios.get(`http://localhost:8081/singleProduct/${id}`)
@@ -54,9 +54,13 @@ const SingleProduct = () => {
 
                     <div className='buytext'>
                         <div className='buynow'>
-                            <Link to='/honey/buyproduct' state={{ id }}>
-                                <button>Buy Now</button>
-                            </Link>
+                            {
+                                data === null ? <Link to='/role'>
+                                    <button>Buy Now</button>
+                                </Link> : <Link to='/honey/buyproduct' state={{ id }}>
+                                    <button>Buy Now</button>
+                                </Link>
+                            }
                         </div>
 
                         <div className='buynow addtocart'>
