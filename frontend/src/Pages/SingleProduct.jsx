@@ -1,7 +1,7 @@
 import axios from 'axios';
 import '../Cssfile/Singleproduct.css';
 import React, { useEffect, useState } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { FaRegStar, FaStar } from 'react-icons/fa6';
 import { IoStarHalf } from 'react-icons/io5';
 import { MdCurrencyRupee } from 'react-icons/md';
@@ -48,8 +48,9 @@ const SingleProduct = () => {
         <div className='productContainer'>
             <div className='productdetail'>
                 <div className='imagecontainer'>
+
                     <div className='imagedata'>
-                        <img src={`${product.imagelink}`} alt="" width='470rem' />
+                        <img src={`${product.imagelink}`} alt="" />
                     </div>
 
                     <div className='buytext'>
@@ -68,6 +69,7 @@ const SingleProduct = () => {
                             <ToastContainer />
                         </div>
                     </div>
+
                 </div>
 
                 <div className='textcontainer'>

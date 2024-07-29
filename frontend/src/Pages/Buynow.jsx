@@ -66,6 +66,7 @@ const Buynow = () => {
     return (
         <div className='buynowcontainer'>
             <div className='buynowcart'>
+
                 <div className='containers'>
 
                     <div className='continueshopping'>
@@ -90,7 +91,7 @@ const Buynow = () => {
                                     <div className='billimage cartquantity'>
                                         <p>{product.quantity}</p>
                                     </div>
-                                    <div className='billimage'>
+                                    <div className='billimage billprce'>
                                         <MdCurrencyRupee /> {product.price}
                                     </div>
                                     <div className='billimage'>

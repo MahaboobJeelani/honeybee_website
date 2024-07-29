@@ -28,7 +28,7 @@ const userLogin = async (req, resp) => {
         } else if (findUser.password !== password) {
             resp.status(404).send('Password is Invalid')
         } else {
-            const token = jwt.sign({ findUser }, process.env.SECRET_KEY, { expiresIn: '2h' })
+            const token = jwt.sign({ findUser }, process.env.SECRET_KEY, { expiresIn: '24h' })
             resp.status(200).json({ token, login: true, message: 'Login Successfully' })
         }
     } catch (error) {
