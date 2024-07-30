@@ -3,7 +3,7 @@ import React from 'react'
 const AdminDashboard = () => {
   return (
     <div>
-      Hello Admin
+      Hello this is dashboard telusaa
     </div>
   )
 }

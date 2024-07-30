@@ -14,7 +14,7 @@ import Errorpage from './Components/Errorpage';
 import { useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import AuthContext from './Context/AuthContext';
-import AdminDashboard from './Pages/AdminDashboard';
+import AdminMenu from './Pages/AdminMenu';
 
 
 const App = () => {
@@ -51,7 +51,7 @@ const App = () => {
       }
     }
     expiretime()
-  }, [navigate])
+  }, [navigate, accessToken])
 
 
   return (
@@ -65,7 +65,8 @@ const App = () => {
         <Route path="/userlogin" element={<Userlogin />} />
         <Route path='*' element={<Errorpage />} />
         <Route path='/honey/*' element={<Subroutes />} />
-        <Route path='/admindashboard' element={<AuthContext Child={AdminDashboard} />} />
+
+        <Route path='/admin/*' element={<AuthContext Child={AdminMenu} />} />
       </Routes>
     </div>
   );

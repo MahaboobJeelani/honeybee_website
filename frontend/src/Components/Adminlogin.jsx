@@ -24,7 +24,7 @@ const Login = () => {
                 const token = res.data.token
                 if (token) {
                     localStorage.setItem('adminToken', res.data.token)
-                    navigate('/admindashboard')
+                    navigate('/admin')
                     toast(`${res.data.message}`);
                 }
             }).catch((error) => {
