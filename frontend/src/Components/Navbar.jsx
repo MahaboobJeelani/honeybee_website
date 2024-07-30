@@ -80,25 +80,32 @@ const Navbar = () => {
             </div>
 
             <div className='logintextcontainer'>
-                {data === null ? <Link to='/'><FaCartShopping className='cart' /></Link> : <Link to='/honey/buyproduct'><FaCartShopping className='cart' /></Link>}
-                {displayprofile ?
-                    (
-                        <div className='profilepic'>
-                            <Link>
-                                <MdAccountCircle className='profileicon' onClick={profiledisplay} />
-                            </Link>
-                        </div>
-                    ) :
-                    (
-                        <div>
-                            <Link to='/role' className='loginlink'>
-                                <div className='login'>
-                                    <CgProfile className='accountcircle' />
-                                    <button>Login</button>
-                                </div>
-                            </Link>
-                        </div>
-                    )}
+                {
+                    data === null ?
+                        <Link to='/'><FaCartShopping className='cart' /></Link> :
+                        <Link to='/honey/buyproduct'><FaCartShopping className='cart' /></Link>
+                }
+
+                {
+                    displayprofile ?
+                        (
+                            <div className='profilepic'>
+                                <Link>
+                                    <MdAccountCircle className='profileicon' onClick={profiledisplay} />
+                                </Link>
+                            </div>
+                        ) :
+                        (
+                            <div>
+                                <Link to='/role' className='loginlink'>
+                                    <div className='login'>
+                                        <CgProfile className='accountcircle' />
+                                        <button>Login</button>
+                                    </div>
+                                </Link>
+                            </div>
+                        )
+                }
 
                 <div className={`${profile ? 'profiledisplay' : 'profilehide'}`}>
                     <div className='profilecontainer'>

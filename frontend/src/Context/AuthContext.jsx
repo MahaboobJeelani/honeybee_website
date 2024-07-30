@@ -1,26 +1,23 @@
-import React, { createContext, useContext, useState } from 'react'
+import React from 'react'
+import { Navigate } from 'react-router-dom'
 
+const AuthContext = ({ Child }) => {
+    const adminToken = localStorage.getItem('adminToken')
 
-const AuthContext = createContext()
-
-export const AuthProvider = ({ children }) => {
-    let [isAuthenticated, setIsAuthenticated] = useState(false)
-
-    let login = () => {
-        setIsAuthenticated(true)
-    }
-
-    let logout = () => {
-        setIsAuthenticated(false)
+    const verifycProtect = () => {
+        if (adminToken == null) {
+            return false
+        } else {
+            return true
+        }
     }
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
-            {children}
-        </AuthContext.Provider>
+        <div>
+            {verifycProtect() ? <Child /> : <Navigate to='/adminlogin' />}
+        </div>
     )
+
 }
 
-export const useAuth = () => {
-    return useContext(AuthContext)
-}
+export default AuthContext

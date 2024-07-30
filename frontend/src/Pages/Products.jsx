@@ -5,6 +5,7 @@ import { FaRegStar, FaStar } from 'react-icons/fa6';
 import { IoStarHalf } from "react-icons/io5";
 import { MdCurrencyRupee } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -21,7 +22,6 @@ const Products = () => {
     axios.get(`http://localhost:8081/honeydata`)
       .then((res) => {
         setProduct(res.data);
-        // console.log(res.data);
       }).catch((error) => {
         console.log(error.message);
       });
@@ -29,7 +29,12 @@ const Products = () => {
 
 
   const addToCart = (id) => {
-    axios.put(`http://localhost:8081/cartitems/66a1dead30d2e041cdde8d91/${id}`)
+    let userID;
+    if (token) {
+      const tokenDecode = jwtDecode(token)
+      userID = tokenDecode.findUser._id
+    }
+    axios.put(`http://localhost:8081/cartitems/${userID}/${id}`)
       .then((res) => {
         const itemName = res.data.cart.find(item => item._id === id)
         toast.success(`${itemName.name} Item added successfully`)
@@ -50,7 +55,7 @@ const Products = () => {
       <div className='popularproduct'>
         {product.map((res) => {
           return (
-            <div className='popularcontainer' key={res.id} >
+            <div className='popularcontainer' key={res._id} >
               <div className='popularimage'>
                 <img src={`${res.imagelink}`} alt="products" width='100px' />
               </div>
@@ -96,7 +101,11 @@ const Products = () => {
                     <Link to='/honey/products' className='productbtn'><button >Buy Now</button></Link> :
                     <Link to='/honey/buyproduct' className='productbtn'><button >Buy Now</button></Link>
                 }
-                <button onClick={() => addToCart(res._id)}>Add to cart</button>
+                {
+                  token === null ?
+                    <button>Add to cart</button> :
+                    <button onClick={() => addToCart(res._id)}>Add to cart</button>
+                }
               </div>
 
             </div>

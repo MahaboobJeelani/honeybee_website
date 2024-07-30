@@ -25,8 +25,6 @@ const Buynow = () => {
     let decodeToken = jwtDecode(userData)
     const userId = decodeToken.findUser._id
 
-
-
     const newSubTotal = cartItems.length === 0 ? (product.length === 0 ? 0 : defaultShippingCarges) : defaultShippingCarges;
     const productPrice = product.length === 0 ? 0 : product.price
 
@@ -45,14 +43,14 @@ const Buynow = () => {
                 setCartItems(res.data.cart);
             })
             .catch((error) => { console.log(error.message); });
-    }, [Subtotal]);
+    }, [userId]);
 
     useEffect(() => {
         const subtotal = cartItems.reduce((total, item) => {
             return total + (item.quantity * item.price)
         }, 0)
         setSubtotal(subtotal + productPrice)
-    }, [cartItems])
+    }, [cartItems, productPrice])
 
     const deleteCartItem = (id) => {
         axios.delete(`http://localhost:8081/deletecartitem/${userId}/${id}`)
@@ -60,6 +58,31 @@ const Buynow = () => {
                 setCartItems(cartItems.filter(item => item._id !== id));
             })
             .catch((error) => { console.log(error); });
+    };
+
+    const updateCartQuantity = (id, newQuantity) => {
+        axios.put(`http://localhost:8081/changequantity/${userId}/${id}`, { quantity: newQuantity })
+            .then((res) => {
+                setCartItems(cartItems.map(item =>
+                    item._id === id ? { ...item, quantity: newQuantity } : item
+                ))
+            }).catch((error) => console.log(error.message))
+    }
+
+    const countPriceHandleIncre = (id) => {
+        const item = cartItems.find(item => item._id === id)
+        if (item) {
+            const newQuantity = item.quantity + 1
+            updateCartQuantity(id, newQuantity)
+        }
+    };
+
+    const countPriceHandleDecre = (id) => {
+        const item = cartItems.find(item => item._id === id)
+        if (item && item.quantity > 1) {
+            const newQuantity = item.quantity - 1
+            updateCartQuantity(id, newQuantity)
+        }
     };
 
 
@@ -89,7 +112,9 @@ const Buynow = () => {
                                         <h6>{product.name}</h6>
                                     </div>
                                     <div className='billimage cartquantity'>
+                                        <button className='cartbtns' onClick={() => countPriceHandleDecre(product._id)}>-</button>
                                         <p>{product.quantity}</p>
+                                        <button className='cartbtns' onClick={() => countPriceHandleIncre(product._id)}>+</button>
                                     </div>
                                     <div className='billimage billprce'>
                                         <MdCurrencyRupee /> {product.price}
@@ -111,7 +136,9 @@ const Buynow = () => {
                                         <h6>{cartItem.name}</h6>
                                     </div>
                                     <div className='cartimg cartquantity'>
+                                        <button className='cartbtns' onClick={() => countPriceHandleDecre(cartItem._id)}>-</button>
                                         <p>{cartItem.quantity}</p>
+                                        <button className='cartbtns' onClick={() => countPriceHandleIncre(cartItem._id)}>+</button>
                                     </div>
                                     <div className='cartimg cartprice'>
                                         <MdCurrencyRupee /> {cartItem.price}
@@ -125,7 +152,7 @@ const Buynow = () => {
                     </div>
                 </div>
 
-                <div className='containers card'>
+                <div className='card'>
                     <nav className='carddetails'>
                         <div className='cardprofile'>
                             <div className='textcard'>Card Details</div>

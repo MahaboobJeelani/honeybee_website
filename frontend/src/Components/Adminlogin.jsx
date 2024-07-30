@@ -1,5 +1,7 @@
 import '../Cssfile/Adminlogin.css'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import React, { useState } from 'react'
 
 import { Link, useNavigate } from 'react-router-dom'
@@ -18,8 +20,13 @@ const Login = () => {
         }
         axios.post(`http://localhost:8081/login`, payload)
             .then((res) => {
-                navigate('/')
-                console.log(res);
+                console.log(res.data);
+                const token = res.data.token
+                if (token) {
+                    localStorage.setItem('adminToken', res.data.token)
+                    navigate('/admindashboard')
+                    toast(`${res.data.message}`);
+                }
             }).catch((error) => {
                 console.log(error.message);
             })
@@ -27,7 +34,7 @@ const Login = () => {
 
     return (
         <div className='adminlogin'>
-
+            <ToastContainer />
             <form onSubmit={loginAdmin} className='adminlogincont'>
                 <label htmlFor="">Email</label>
                 <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='email' />

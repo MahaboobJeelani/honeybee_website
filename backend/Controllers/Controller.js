@@ -43,7 +43,7 @@ const insertHoneydata = async (req, resp) => {
             name: name,
             description: description,
             price: price,
-            quantity: quantity,
+            quantity: 1,
             imagelink: imagelink
         })
         await createHoneydata.save()
@@ -131,5 +131,22 @@ const removeCartItem = async (req, resp) => {
     }
 }
 
+const changeQuantity = async (req, resp) => {
+    const { userid, productid } = req.params
+    const { quantity } = req.body
+    try {
+        const update = { 'cart.$.quantity': quantity };
+        const updatequantityandPrice = await honeyModel.updateOne(
+            { _id: userid, 'cart._id': productid }, { $set: update }
+        )
+        if (updatequantityandPrice.nModified === 0) {
+            return resp.status(404).send('Product not found in cart or no change detected')
+        }
+        resp.status(200).send('cart updated successfully')
+    } catch (error) {
+        resp.status.send(error.message)
+    }
+}
 
-module.exports = { userRegister, userLogin, insertHoneydata, getData, userData, singleProduct, cartItems, getCartItems, removeCartItem }
+
+module.exports = { userRegister, userLogin, insertHoneydata, getData, userData, singleProduct, cartItems, getCartItems, removeCartItem, changeQuantity }
