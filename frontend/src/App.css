@@ -1,60 +1,32 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-.apppage {
-    height: 100vh;
-}
-
-@media screen and (max-width:480px) {
-    .apppage {
-        height: 100vh;
-    }
-}
-    
-*/
-
-
-
-/* Global Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* App Page */
 .apppage {
     height: 100vh;
 }
 
-/* Media Queries */
 
-/* Small devices (portrait phones, less than 576px) */
 @media screen and (max-width: 575.98px) {
     .apppage {
         height: 100vh;
     }
 }
 
-/* Medium devices (tablets, less than 768px) */
 @media screen and (max-width: 767.98px) {
     .apppage {
         height: 100vh;
     }
 }
 
-/* Large devices (desktops, less than 992px) */
 @media screen and (max-width: 991.98px) {
     .apppage {
         height: 100vh;
     }
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width: 1200px) {
     .apppage {
         height: 100vh;

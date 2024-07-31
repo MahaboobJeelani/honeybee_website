@@ -220,7 +220,6 @@
         grid-template-columns: 1fr auto;
         border-bottom: none;
         position: absolute;
-        /* border: 2px solid red; */
     }
 
 
@@ -229,12 +228,10 @@
         font-size: 1.7rem;
         width: 22rem;
         margin-left: -5rem;
-        /* border: 2px solid red; */
     }
 
     .lines {
         display: block;
-        /* border: 2px solid green; */
         margin-left: .4rem;
     }
 

@@ -1,0 +1,76 @@
+.adminproductsview {
+    margin: 1rem;
+    /* border: 2px solid red; */
+}
+
+.productgridtext {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productgridtext>p:first-child {
+    font-size: 1.2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+}
+
+.productgridtext>p>button {
+    height: 2.5rem;
+    width: 10rem;
+    background: #005792;
+    color: white;
+    border: 2px solid rgb(236, 236, 236);
+    border-radius: 4px;
+}
+
+.productgridtext>p>button>:first-child {
+    margin-right: 1rem;
+}
+
+.productviewgrid {
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgb(220, 220, 220);
+}
+
+.admingetproducts {
+    /* border: 2px solid red; */
+}
+
+.admingetproducts>input {
+    height: 2rem;
+    width: 25rem;
+    border: 2px solid grey;
+    border-radius: 4px;
+    padding-left: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: .8rem;
+}
+
+.adminproductedit {
+    /* border: 2px solid green; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.adminproductcart {
+    width: 15%;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 7px grey;
+    border: 2px solid rgb(168, 168, 168);
+}
+
+.adminimg {
+    /* border: 2px solid green; */
+    overflow: hidden;
+    scrollbar-width: none;
+    object-fit: contain;
+}
+
+.adminimg>img {
+    width: 100%;
+}
