@@ -14,7 +14,7 @@ import Errorpage from './Components/Errorpage';
 import { useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import AuthContext from './Context/AuthContext';
-import AdminMenu from './Pages/AdminMenu';
+import AdminSubroutes from './Pages/AdminSubroutes';
 
 
 const App = () => {
@@ -66,7 +66,7 @@ const App = () => {
         <Route path='*' element={<Errorpage />} />
         <Route path='/honey/*' element={<Subroutes />} />
 
-        <Route path='/admin/*' element={<AuthContext Child={AdminMenu} />} />
+        <Route path='/admin/*' element={<AuthContext Child={AdminSubroutes} />} />
       </Routes>
     </div>
   );
