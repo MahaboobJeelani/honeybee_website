@@ -38,7 +38,7 @@ const AdminProducts = () => {
                                     <p>{res.name}</p>
                                     <p>{res.price}</p>
                                 </div>
-                                <div>
+                                <div className='adminproductbtn'>
                                     <button><Link><MdModeEdit />Edit</Link></button>
                                     <button><Link><MdDeleteForever />Delete</Link></button>
                                 </div>
