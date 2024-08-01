@@ -1,32 +1,63 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import '../Cssfile/Createproduct.css'
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom'
 
 const CreateProduct = () => {
     let [name, setName] = useState('')
     let [description, setDescription] = useState('')
     let [price, setPrice] = useState('')
-    let [brand, setBrand] = useState('')
-    let [category, setCategory] = useState('')
+    let [quantity, setQuantity] = useState('')
+    let [imagelink, setImagelink] = useState('')
+
+
+    let navigate = useNavigate()
+
+
+    const createHandler = (e) => {
+        e.preventDefault()
+        const payload = {
+            name: name,
+            description: description,
+            price: price,
+            quantity: quantity,
+            imagelink: imagelink
+        }
+        axios.post(`http://localhost:8081/create`, payload)
+            .then((res) => {
+                console.log("Data Created Successfully")
+                setName('');
+                setDescription('');
+                setPrice('');
+                setQuantity('');
+                setImagelink('');
+
+            })
+            .catch((error) => console.log(error.message))
+    }
 
     return (
-        <>
+        <div className='admincreateproduct'>
+            <div className='backarrowicon' >
+                <span onClick={() => navigate(-1)}><FaArrowLeftLong /> back</span>
+            </div>
+            <hr />
             <div className='form-container'>
-                <div className='form-conta'>
+
+                <div className='formconta'>
                     <h2>Create Products</h2>
-                    <form className='createfrom'>
-                        <input type="text" placeholder='Enter Name' value={name} onChange={(e) => setName(e.target.value)} /> <br />
-                        <input type="text" placeholder='Enter Price' value={price} onChange={(e) => setPrice(e.target.value)} /> <br />
-                        <input type="text" placeholder='Enter Brand' value={brand} onChange={(e) => setBrand(e.target.value)} /> <br />
-                        <input type="text" placeholder='Enter Category' value={category} onChange={(e) => setCategory(e.target.value)} /> <br />
-                        <div className='productbtn'>
-                            <button className='btn'>Submit</button>
-                        </div>
+                    <form action='button' className='createfrom' onSubmit={createHandler} >
+                        <input type="text" placeholder='Enter Name' value={name} onChange={(e) => setName(e.target.value)} />
+                        <input type="text" placeholder='Enter Description' value={description} onChange={(e) => setDescription(e.target.value)} />
+                        <input type="text" placeholder='Enter Price' value={price} onChange={(e) => setPrice(e.target.value)} />
+                        <input type="number" placeholder='Enter Quantity' value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+                        <input type="text" placeholder='Enter Image Link' value={imagelink} onChange={(e) => setImagelink(e.target.value)} />
+                        <button type='submit' className='createbtn'>Create Product</button>
                     </form>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
