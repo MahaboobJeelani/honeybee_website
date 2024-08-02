@@ -5,6 +5,7 @@ const honeydataSchema = new mongoose.Schema({
     description: { type: String, required: true },
     price: { type: Number, required: true },
     quantity: { type: Number, default: 1 },
+    brand: { type: String, required: true },
     imagelink: { type: String, required: true }
 }, { timestamps: true })
 
@@ -13,7 +14,9 @@ const honeySchema = new mongoose.Schema({
     email: { type: String, required: true },
     password: { type: String, required: true, min: 5, max: 15 },
     role: { type: String },
-    cart: [honeydataSchema]
+    cart: [honeydataSchema],
+    isActive: { type: Boolean, default: false },
+    earnings: { type: Number, default: 0, required: false }
 }, { timestamps: true })
 
 

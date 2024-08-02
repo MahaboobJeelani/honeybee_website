@@ -29,7 +29,7 @@ const userLogin = async (req, resp) => {
             resp.status(404).send('Password is Invalid')
         } else {
             const token = jwt.sign({ findUser }, process.env.SECRET_KEY, { expiresIn: '24h' })
-            resp.status(200).json({ token, login: true, message: 'Login Successfully' })
+            resp.status(200).json({ token, message: 'Login Successfully' })
         }
     } catch (error) {
         resp.status(500).send(error.message)
@@ -37,13 +37,14 @@ const userLogin = async (req, resp) => {
 }
 
 const insertHoneydata = async (req, resp) => {
-    const { name, description, price, quantity, imagelink } = req.body
+    const { name, description, price, quantity, imagelink, brand } = req.body
     try {
         const createHoneydata = new honeydata({
             name: name,
             description: description,
             price: price,
-            quantity: 1,
+            quantity: quantity,
+            brand: brand,
             imagelink: imagelink
         })
         await createHoneydata.save()
@@ -61,7 +62,6 @@ const getData = async (req, resp) => {
         resp.status(500).send(error.message)
     }
 }
-
 
 const userData = async (req, resp) => {
     const { name, email, phone, address, state } = req.body
@@ -84,6 +84,7 @@ const singleProduct = async (req, resp) => {
     const id = req.params.id
     try {
         const findProduct = await honeydata.findById(id)
+        console.log(findProduct);
         resp.status(200).send(findProduct)
     } catch (error) {
         resp.status(500).send(error.message)
@@ -112,7 +113,6 @@ const getCartItems = async (req, resp) => {
         resp.status(500).send(error.message)
     }
 }
-
 
 const removeCartItem = async (req, resp) => {
     const { userid, productid } = req.params
@@ -148,5 +148,40 @@ const changeQuantity = async (req, resp) => {
     }
 }
 
+const updateProduct = async (req, resp) => {
+    try {
+        const update = await honeydata.updateOne(req.params, { $set: req.body })
+        resp.status(200).send(update)
+    } catch (error) {
+        resp.status(500).send(error.message)
+    }
+}
 
-module.exports = { userRegister, userLogin, insertHoneydata, getData, userData, singleProduct, cartItems, getCartItems, removeCartItem, changeQuantity }
+const deleteProduct = async (req, resp) => {
+    const { _id } = req.params
+    try {
+        const findProduct = await honeydata.findById(_id)
+        if (findProduct) {
+            const deleteProduct = await honeydata.deleteOne(req.params)
+            resp.status(200).send("Item delete successfully")
+        } else {
+            resp.status(500).send("Product not found")
+        }
+    } catch (error) {
+        resp.status(500).send(error.message)
+    }
+}
+
+const totalUsers = async (req, resp) => {
+    try {
+        const findusers = await honeyModel.find();
+        const activeUsers = findusers.filter(user => user.role !== 'admin')
+        resp.status(200).send(activeUsers)
+    } catch (error) {
+        resp.status(500).send(error.message)
+    }
+}
+
+
+
+module.exports = { userRegister, userLogin, insertHoneydata, getData, userData, singleProduct, cartItems, getCartItems, removeCartItem, changeQuantity, updateProduct, deleteProduct, totalUsers }

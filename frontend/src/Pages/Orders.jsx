@@ -17,30 +17,32 @@ const Orders = () => {
     const newDate = new Date().toLocaleDateString()
     return (
         <div className='orders'>
-            <p>New Orders</p>
+            <p>New Orders <span>{ordersproducts.length} Orders Found </span></p>
 
             <div className='orderproducts'>
                 <div className='productordernav'>
                     <span>#</span>
+                    <span>Product Name</span>
+                    <span>Order ID</span>
                     <span>Vendor Name</span>
-                    <span>Order Number</span>
                     <span>No Products</span>
                     <span>Customer</span>
-                    <span>Total Order</span>
+                    <span>Total</span>
                     <span>Date</span>
                     <span>Action</span>
                 </div>
                 {ordersproducts.map((item, no) => {
                     return (
                         <div className='productordernav orderproduct' key={item._id}>
-                            <span>{no}</span>
-                            <span>Dadant & Sons</span>
+                            <span>{no + 1}</span>
+                            <span>{item.name}</span>
                             <span>YurTsHB</span>
+                            <span>Dadant & Sons</span>
                             <span>1</span>
                             <span>Paul k</span>
                             <span>{item.price}</span>
                             <span>{newDate}</span>
-                            <span className='viewbtn'><button>View</button></span>
+                            <span className='viewbtn'><button>Pending</button></span>
                         </div>
                     )
                 })}

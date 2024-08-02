@@ -2,7 +2,14 @@
     height: 100%;
     overflow: hidden;
     overflow-y: scroll;
-    /* border: 2px solid red; */
+    margin-left: 1rem;
+    border: 2px solid rgb(230, 230, 230);
+}
+
+.orders>p>span{
+    font-size: .6rem;
+    color: rgb(175, 175, 175);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .orders::-webkit-scrollbar {
@@ -55,17 +62,20 @@
     font-size: .8rem;
 }
 
-.viewbtn{
+.viewbtn {
     margin: .3rem 0rem;
 }
+
+
+
 .viewbtn>button {
     width: 60%;
-    background: orange;
+    background: rgb(255, 166, 0, 0.2);
+    color: orange;
     font-weight: 600;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border: none;
     border-radius: 5px;
-
 }
 
 .viewbtn>button:focus {

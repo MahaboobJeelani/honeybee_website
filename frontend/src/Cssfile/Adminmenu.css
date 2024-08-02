@@ -91,3 +91,60 @@
 .contentdashboard {
     width: 100%;
 }
+
+.adminlogoutyes {
+    height: 100vh;
+    width: 100vw;
+    display: block;
+    position: absolute;
+    background: transparent;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(34, 34, 34, 0.7);
+}
+
+.adminloginno {
+    display: none;
+    border: 2px solid green;
+}
+
+.adminlogoutdashboard {
+    height: 25%;
+    width: 25%;
+    background: white;
+    border: 2px solid rgb(189, 189, 189);
+    border-radius: 5px;
+    box-shadow: 0px 0px 25px rgb(123, 123, 123);
+    text-align: center;
+    margin: 1rem;
+    overflow: hidden;
+}
+
+.adminlogoutdashboard>h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-style: italic;
+    color: rgb(38, 37, 37);
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+.adminlogoutdashboard>p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-bottom: .9rem;
+}
+
+.logoutbtns {
+    height: 21%;
+}
+
+.logoutbtns>button {
+    width: 50%;
+    height: 100%;
+    background: transparent;
+    border: 1px solid rgb(220, 220, 220);
+}

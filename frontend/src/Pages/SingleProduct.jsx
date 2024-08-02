@@ -22,7 +22,7 @@ const SingleProduct = () => {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:8081/singleProduct/${id}`)
+        axios.get(`http://localhost:8081/singleproduct/${id}`)
             .then((res) => {
                 setProduct(res.data);
             }).catch((error) => { console.log(error.message); });
@@ -51,11 +51,13 @@ const SingleProduct = () => {
                     <div className='buytext'>
                         <div className='buynow'>
                             {
-                                token === null ? <Link to='/role'>
-                                    <button>Buy Now</button>
-                                </Link> : <Link to='/honey/buyproduct' state={{ id }}>
-                                    <button>Buy Now</button>
-                                </Link>
+                                token === null ?
+                                    <Link to='/role'>
+                                        <button>Buy Now</button>
+                                    </Link> :
+                                    <Link to='/honey/buyproduct' state={{ id }}>
+                                        <button>Buy Now</button>
+                                    </Link>
                             }
                         </div>
 

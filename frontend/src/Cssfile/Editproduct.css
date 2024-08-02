@@ -1,4 +1,4 @@
-.admincreateproduct {
+.admineditproduct {
     margin: 1rem;
 }
 
@@ -10,12 +10,12 @@
     cursor: pointer;
 }
 
-.form-container {
+.adminformcontainer {
     display: flex;
     justify-content: center;
 }
 
-.formconta {
+.adminformconta {
     width: 40%;
     background: white;
     border: 2px solid slateblue;
@@ -24,47 +24,47 @@
     box-shadow: 0px 0px 10px rgb(207, 207, 207);
 }
 
-.formconta>h2 {
+.adminformconta>h2 {
     font-size: 1.3rem;
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.createfrom {
+.editfrom {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 }
 
-.createfrom:nth-child(even) {
+.editfrom:nth-child(even) {
     font-size: 25px;
     font-family: "Stylish", serif;
     font-weight: 400;
 }
 
-.createfrom input {
+.editfrom input {
     border: none;
     width: 100%;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid rgb(255, 0, 0);
     padding: 2px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.1rem;
     margin-bottom: .9rem;
 }
 
-.createfrom input:focus {
+.editfrom input:focus {
     outline: none;
 }
 
-.createfrom input::placeholder {
+.editfrom input::placeholder {
     font-size: .9rem;
     color: purple;
     font-weight: 700;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.createbtn {
+.editbtn {
     width: 100%;
     padding: .4rem;
     border: 2px solid orange;

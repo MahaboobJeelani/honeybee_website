@@ -4,7 +4,7 @@ import { GiDrippingHoney } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
 import { FaCartShopping } from "react-icons/fa6";
 import { MdAccountCircle } from "react-icons/md";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoIosMenu, IoMdHelpCircle } from "react-icons/io";
 import { HiMiniXMark } from "react-icons/hi2";
 import { RiLogoutCircleRFill } from "react-icons/ri";
@@ -15,7 +15,10 @@ const Navbar = () => {
     let [showMenu, setShowMenu] = useState(false);
     let [profile, setProfile] = useState(false);
 
+    const navigate = useNavigate()
+
     let data = localStorage.getItem('token');
+
     useEffect(() => {
         if (data) {
             setDisplayprofile(data);
@@ -36,6 +39,7 @@ const Navbar = () => {
 
     const logout = () => {
         localStorage.removeItem('token')
+        navigate('/')
     }
 
     return (

@@ -9,7 +9,6 @@ const AdminSubroutes = () => {
         <div>
             <Routes>
                 <Route path='/' element={<AdminMenu />} />
-                {/* <Route path='/createproduct' element={<CreateProduct />} /> */}
             </Routes>
         </div>
     )

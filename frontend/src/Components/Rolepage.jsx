@@ -13,14 +13,14 @@ const Rolepage = () => {
             <div className='admincontainer'>
 
                 <div className='adminloginContainer'>
-                    <Link to='/adminregister' className='adminlink'>
+                    <Link to='/adminlogin' className='adminlink'>
                         <MdManageAccounts className='adminicon' />
                         <p>Admin</p>
                     </Link>
                 </div>
 
                 <div className='adminloginContainer'>
-                    <Link to='/userregister' className='adminlink'>
+                    <Link to='/userlogin' className='adminlink'>
                         <RiAccountCircleFill className='adminicon' />
                         <p>User</p>
                     </Link>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../Cssfile/Adminmenu.css'
 import AdminDashboard from '../Pages/AdminDashboard'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { GiDrippingHoney } from 'react-icons/gi'
 import { TiHome } from "react-icons/ti";
 import { HiCurrencyDollar } from "react-icons/hi2";
@@ -10,9 +10,14 @@ import { MdOutlineHelp } from "react-icons/md";
 import { RiLogoutCircleRFill } from "react-icons/ri";
 import { AiFillProduct } from "react-icons/ai";
 import AdminProducts from './AdminProducts'
+import Orders from './Orders'
+import Payment from './Payment'
 
 const AdminMenu = () => {
-    const [adminMenu, setAdminMenu] = useState('products');
+    const [adminMenu, setAdminMenu] = useState('payments');
+    const [logout, setLogout] = useState()
+
+    const navigate = useNavigate()
 
     const renderMenu = () => {
         switch (adminMenu) {
@@ -21,9 +26,9 @@ const AdminMenu = () => {
             case 'products':
                 return <AdminProducts />;
             case 'orders':
-                return <p>Orders</p>;
+                return <Orders />;
             case 'payments':
-                return <p>Payments</p>;
+                return <Payment />;
             case 'help':
                 return <p>Help</p>;
             default:
@@ -31,8 +36,26 @@ const AdminMenu = () => {
         }
     }
 
+    const logoutHandler = () => {
+        const adminToken = localStorage.getItem('adminToken')
+        if (adminToken) {
+            localStorage.removeItem('adminToken')
+            navigate('/')
+        }
+    }
+
     return (
         <div className='adminmenu'>
+            <div className={`${logout === 'logout' ? 'adminlogoutyes' : 'adminloginno'}`}>
+                <div className='adminlogoutdashboard'>
+                    <h3>Logout Account</h3>
+                    <p>Are You Sure Your Want to Logout</p>
+                    <div className='logoutbtns'>
+                        <button onClick={() => setLogout(adminMenu)}>Cancel</button>
+                        <button onClick={logoutHandler}>Sign Out</button>
+                    </div>
+                </div>
+            </div>
             <div className='adminmenubtns'>
                 <div className='adminlogo'>
                     <Link to='/admin'>
@@ -44,37 +67,37 @@ const AdminMenu = () => {
                     </Link>
                 </div>
 
-                <div className={`adminbtns ${adminMenu === 'dashboard' ? 'actived' : ''}`} onClick={() => setAdminMenu('dashboard')}>
+                <div className={`adminbtns ${adminMenu === 'dashboard' ? 'actived' : ''}`} onClick={() => { setAdminMenu('dashboard'); setLogout('dashboard') }}>
                     <TiHome className='adminicons' />
                     <button className='adminbutton'>Dashboard</button>
                 </div>
 
-                <div className={`adminbtns ${adminMenu === 'products' ? 'actived' : ''}`} onClick={() => setAdminMenu('products')}>
+                <div className={`adminbtns ${adminMenu === 'products' ? 'actived' : ''}`} onClick={() => { setAdminMenu('products'); setLogout('products') }}>
                     <AiFillProduct className='adminicons' />
                     <button className='adminbutton'>Products</button>
                 </div>
 
-                <div className={`adminbtns ${adminMenu === 'orders' ? 'actived' : ''}`} onClick={() => setAdminMenu('orders')}>
+                <div className={`adminbtns ${adminMenu === 'orders' ? 'actived' : ''}`} onClick={() => { setAdminMenu('orders'); setLogout('orders') }}>
                     <BsCartCheckFill className='adminicons' />
                     <button className='adminbutton'>Orders</button>
                 </div>
 
-                <div className={`adminbtns ${adminMenu === 'payments' ? 'actived' : ''}`} onClick={() => setAdminMenu('payments')}>
+                <div className={`adminbtns ${adminMenu === 'payments' ? 'actived' : ''}`} onClick={() => { setAdminMenu('payments'); setLogout('payments') }}>
                     <HiCurrencyDollar className='adminicons' />
                     <button className='adminbutton'>Payments</button>
                 </div>
 
-                <div className={`adminbtns ${adminMenu === 'help' ? 'actived' : ''}`} onClick={() => setAdminMenu('help')}>
+                <div className={`adminbtns ${adminMenu === 'help' ? 'actived' : ''}`} onClick={() => { setAdminMenu('help'); setLogout('help') }}>
                     <MdOutlineHelp className='adminicons' />
                     <button className='adminbutton'>Help</button>
                 </div>
 
-                <div className={`adminbtns ${adminMenu === 'logout' ? 'actived' : ''}`} onClick={() => setAdminMenu('logout')}>
+                <div className={`adminbtns ${adminMenu === 'logout' ? 'actived' : ''}`} onClick={() => setLogout('logout')}>
                     <RiLogoutCircleRFill className='adminicons' />
                     <button className='adminbutton'>Logout</button>
                 </div>
-
             </div>
+
             <div className='contentdashboard'>
                 {renderMenu()}
             </div>
