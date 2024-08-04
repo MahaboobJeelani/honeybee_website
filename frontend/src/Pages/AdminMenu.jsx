@@ -29,8 +29,6 @@ const AdminMenu = () => {
                 return <Orders />;
             case 'payments':
                 return <Payment />;
-            case 'help':
-                return <p>Help</p>;
             default:
                 return null;
         }
@@ -85,11 +83,6 @@ const AdminMenu = () => {
                 <div className={`adminbtns ${adminMenu === 'payments' ? 'actived' : ''}`} onClick={() => { setAdminMenu('payments'); setLogout('payments') }}>
                     <HiCurrencyDollar className='adminicons' />
                     <button className='adminbutton'>Payments</button>
-                </div>
-
-                <div className={`adminbtns ${adminMenu === 'help' ? 'actived' : ''}`} onClick={() => { setAdminMenu('help'); setLogout('help') }}>
-                    <MdOutlineHelp className='adminicons' />
-                    <button className='adminbutton'>Help</button>
                 </div>
 
                 <div className={`adminbtns ${adminMenu === 'logout' ? 'actived' : ''}`} onClick={() => setLogout('logout')}>
