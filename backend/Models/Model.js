@@ -19,7 +19,6 @@ const honeySchema = new mongoose.Schema({
     earnings: { type: Number, default: 0, required: false }
 }, { timestamps: true })
 
-
 const userData = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
@@ -28,10 +27,19 @@ const userData = new mongoose.Schema({
     state: { type: String, required: true }
 })
 
+const orderDetails = new mongoose.Schema(
+    {
+        product: { type: mongoose.Schema.Types.ObjectId, ref: "honeydata" },
+        user: { type: mongoose.Schema.Types.ObjectId, ref: "userdata" }
+    }
+)
+
 const honeyModel = mongoose.model('honeyadmi', honeySchema)
 
 const honeydata = mongoose.model('honeydata', honeydataSchema)
 
 const userDatas = mongoose.model('userdata', userData)
 
-module.exports = { honeyModel, honeydata, userDatas }
+const adminorderDetails = mongoose.model('orderdetails', orderDetails)
+
+module.exports = { honeyModel, honeydata, userDatas, adminorderDetails }

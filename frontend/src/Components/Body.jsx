@@ -84,11 +84,11 @@ const Body = () => {
                         </div>
                     </div>
                 </div>
-                <div className='servicebtn'>
+                {/* <div className='servicebtn'>
                     <Link to='/honey/products'>
                         <button className="button-btn viewproductsbtn">View Products</button>
                     </Link>
-                </div>
+                </div> */}
             </div>
 
             {/* ==================================== */}
@@ -131,6 +131,7 @@ const Body = () => {
                             </div>
                         </div>
 
+
                     </div>
 
                     <div className='box ourproductsimage'>
@@ -167,8 +168,13 @@ const Body = () => {
                                 <p>Boost your immunity with our natural honey products.</p>
                             </div>
                         </div>
-
                     </div>
+                </div>
+
+                <div className='servicebtn'>
+                    <Link to='/honey/products'>
+                        <button className="button-btn viewproductsbtn">View Products</button>
+                    </Link>
                 </div>
             </div>
         </div>

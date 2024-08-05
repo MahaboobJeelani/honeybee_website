@@ -24,7 +24,6 @@ const CarouselSlider = () => {
                     <img src={SliderImg2} className='d-block w-100' alt='sliderone' />
                 </MDBCarouselItem>
 
-
                 <MDBCarouselItem className='sliderone'>
                     <h2 className='slidertext'>
                         Rich in flavor and goodness, our honey enhances your wellness..
@@ -38,7 +37,6 @@ const CarouselSlider = () => {
                     </div>
                     <img src={SliderOne} className='d-block w-100' alt='sliderone' />
                 </MDBCarouselItem>
-
 
                 <MDBCarouselItem>
                     <h2 className='slidertext'>
@@ -55,7 +53,6 @@ const CarouselSlider = () => {
                     <img src={SliderImg3} className='d-block w-100' alt='sliderone' />
                 </MDBCarouselItem>
             </MDBCarousel>
-
         </div>
     );
 }

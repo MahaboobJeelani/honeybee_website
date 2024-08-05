@@ -1,5 +1,5 @@
 
-const { userRegister, userLogin, insertHoneydata, getData, userData, singleProduct, cartItems, getCartItems, removeCartItem, changeQuantity, updateProduct, deleteProduct, totalUsers } = require('../Controllers/Controller')
+const { userRegister, userLogin, insertHoneydata, getData, userData, singleProduct, cartItems, getCartItems, removeCartItem, changeQuantity, updateProduct, deleteProduct, totalUsers, orderDetails, getOrderDetails } = require('../Controllers/Controller')
 const express = require('express')
 
 const routes = express.Router()
@@ -17,6 +17,8 @@ routes.put('/changequantity/:userid/:productid', changeQuantity)
 routes.put('/productupdate/:_id', updateProduct);
 routes.delete('/deleteproduct/:_id', deleteProduct)
 routes.get('/activeusers', totalUsers)
+routes.post('/orderdetails/:userid', orderDetails)
+routes.get('/getorder', getOrderDetails)
 
 
 module.exports = routes;

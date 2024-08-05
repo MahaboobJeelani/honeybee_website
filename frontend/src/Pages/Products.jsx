@@ -55,7 +55,7 @@ const Products = () => {
       <div className='popularproduct'>
         {product.map((res) => {
           return (
-            <div className='popularcontainer' key={res._id} >
+            <div className='popularcontainer' key={res._id}  onClick={() => singleProduct(res._id)}>
               <div className='popularimage'>
                 <img src={`${res.imagelink}`} alt="products" width='100px' />
               </div>
@@ -79,7 +79,7 @@ const Products = () => {
               <div className='divcontainer' onClick={() => singleProduct(res._id)}>
 
                 <div className='product productimg'>
-                  <img src={`${res.imagelink}`} alt="products" width='200px' />
+                  <img src={`${res.imagelink}`} alt="products" />
                 </div>
                 <div className='title'>
                   {res.name} <span><MdCurrencyRupee />{res.price}</span>

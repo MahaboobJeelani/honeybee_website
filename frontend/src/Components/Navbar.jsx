@@ -38,8 +38,8 @@ const Navbar = () => {
     }
 
     const logout = () => {
-        localStorage.removeItem('token')
         navigate('/')
+        localStorage.removeItem('token')
     }
 
     return (

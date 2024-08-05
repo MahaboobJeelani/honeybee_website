@@ -1,4 +1,4 @@
-const { honeyModel, honeydata, userDatas } = require('../Models/Model')
+const { honeyModel, honeydata, userDatas, adminorderDetails } = require('../Models/Model')
 const jwt = require('jsonwebtoken')
 
 const userRegister = async (req, resp) => {
@@ -182,6 +182,31 @@ const totalUsers = async (req, resp) => {
     }
 }
 
+const orderDetails = async (req, resp) => {
+    const { userid } = req.params
+    try {
+        const findusers = await honeyModel.findById(userid);
+        if (!findusers) {
+            return resp.status(404).send("user not found")
+        }
+        const orderDetails = findusers.cart.map(item => item._id)
+        const orders = await adminorderDetails.insertMany({
+            product: orderDetails,
+            user: userid
+        }).populate();
+        resp.status(200).send('Order Successfully Placed')
+    } catch (error) {
+        resp.status(500).send(error.message)
+    }
+}
 
+const getOrderDetails = async (req, resp) => {
+    try {
+        const orderDetails = await adminorderDetails.find();
+        resp.status(200).send(orderDetails)
+    } catch (error) {
+        resp.status(500).send(error.message);
+    }
+}
 
-module.exports = { userRegister, userLogin, insertHoneydata, getData, userData, singleProduct, cartItems, getCartItems, removeCartItem, changeQuantity, updateProduct, deleteProduct, totalUsers }
+module.exports = { userRegister, userLogin, insertHoneydata, getData, userData, singleProduct, cartItems, getCartItems, removeCartItem, changeQuantity, updateProduct, deleteProduct, totalUsers, orderDetails, getOrderDetails }

@@ -6,7 +6,6 @@ import { GiDrippingHoney } from 'react-icons/gi'
 import { TiHome } from "react-icons/ti";
 import { HiCurrencyDollar } from "react-icons/hi2";
 import { BsCartCheckFill } from "react-icons/bs";
-import { MdOutlineHelp } from "react-icons/md";
 import { RiLogoutCircleRFill } from "react-icons/ri";
 import { AiFillProduct } from "react-icons/ai";
 import AdminProducts from './AdminProducts'
@@ -14,7 +13,7 @@ import Orders from './Orders'
 import Payment from './Payment'
 
 const AdminMenu = () => {
-    const [adminMenu, setAdminMenu] = useState('payments');
+    const [adminMenu, setAdminMenu] = useState('dashboard');
     const [logout, setLogout] = useState()
 
     const navigate = useNavigate()
@@ -37,8 +36,8 @@ const AdminMenu = () => {
     const logoutHandler = () => {
         const adminToken = localStorage.getItem('adminToken')
         if (adminToken) {
-            localStorage.removeItem('adminToken')
             navigate('/')
+            localStorage.removeItem('adminToken')
         }
     }
 

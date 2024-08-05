@@ -15,7 +15,6 @@
 
 
 .popularproduct {
-    height: 9rem;
     width: 83%;
     margin: auto;
     display: flex;
@@ -23,12 +22,14 @@
     flex-direction: row;
     overflow-x: scroll;
     scrollbar-width: none;
+    /* border: 2px solid green; */
 }
 
 .popularimage {
     display: flex;
     justify-content: flex-start;
     object-fit: contain;
+    /* border: 2px solid rebeccapurple; */
 }
 
 .popularimage>img {
@@ -45,23 +46,28 @@
     border-radius: 10px;
     box-shadow: 2px 2px 0px rgb(111, 111, 111);
     cursor: pointer;
-
+    /* border: 2px solid red; */
 }
 
 .productdetailcontainer {
+    width: 100%;
+    margin: 0rem auto;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     overflow-x: scroll;
+    /* border: 2px solid purple; */
 }
 
 .productdetails {
-    height: 23rem;
-    max-width: 20%;
+    height: 20rem;
+    max-width: 16%;
+    margin: 0rem auto;
     border: 2px solid rgb(185, 185, 185);
     border-radius: 2%;
     margin: .5rem;
     box-shadow: 0 0 5px rgb(218, 218, 218);
+    /* border: 2px solid purple; */
     cursor: pointer;
 }
 
@@ -75,19 +81,27 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
+}
 
+.divcontainer {
+    /* border: 2px solid green; */
 }
 
 .productimg {
-    height: 50%;
+    max-height: 10rem;
     overflow: hidden;
     object-fit: contain;
     margin-bottom: .5rem;
+    /* border: 2px solid red; */
 }
 
 .productimg>img {
+    width: 100%;
     object-fit: cover;
     overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    /* border: 2px solid green; */
 }
 
 .title {
@@ -115,11 +129,12 @@
 }
 
 .productdescription {
-    height: 5rem;
+    height: 2.5rem;
     margin: .6rem .5rem;
     overflow: hidden;
     font-size: .8rem;
     font-family: Arial, Helvetica, sans-serif;
+    /* border: 2px solid purple; */
 }
 
 .carticon {
@@ -135,6 +150,7 @@
 .carticon>button,
 .productbtn {
     width: 100%;
+    font-size: .8rem;
     background: transparent;
     border: 2px solid orange;
 }
@@ -175,6 +191,7 @@
     .popularproduct {
         height: 8rem;
         width: 90%;
+        background: skyblue;
     }
 
     .popularcontainer {
@@ -197,8 +214,8 @@
     }
 
     .productdetails {
-        height: 17.5rem;
-        max-width: 45%;
+        height: 17rem;
+        max-width: 40%;
         border: 2px solid rgb(185, 185, 185);
         border-radius: 3%;
         margin: .5rem;
