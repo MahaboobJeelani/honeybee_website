@@ -9,7 +9,16 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const Buynow = () => {
+    const [cardholdername, setCardholdername] = useState('')
+    const [cardNumber, setCardnumber] = useState('')
+    const [expiration, setExpiration] = useState('')
+    const [cvv, setCvv] = useState('')
+
     const [product, setProduct] = useState([]);
     const [cartItems, setCartItems] = useState([]);
     const [Subtotal, setSubtotal] = useState(0)
@@ -85,9 +94,24 @@ const Buynow = () => {
         }
     };
 
+    const orderPurches = () => {
+        // if (cardholdername === '' || cardNumber === '' || expiration === '' || cvv === '') {
+        //     toast.warning("input field empty")
+        // }
+        // if (cardholdername.toString() === 'mahaboob' || cardNumber === 123456789012 || expiration === '08/25' || cvv === 123) {
+        //     toast.success("Success")
+        //     navigate('/honey/order')
+        // }
+
+        navigate('/honey/order')
+
+    }
+
+
 
     return (
         <div className='buynowcontainer'>
+            <ToastContainer autoClose={2000} />
             <div className='buynowcart'>
 
                 <div className='containers'>
@@ -163,23 +187,22 @@ const Buynow = () => {
                             <FaCcVisa /> <FaCcPaypal /> <FaCcMastercard />
                         </div>
                         <div className='cardholder'>
-                            <input type="text" placeholder='CardHolders Name' />
-                            <input type="text" placeholder='Card Number' />
+                            <input type="text" placeholder='CardHolders Name' value={cardholdername} onChange={(e) => setCardholdername(e.target.value)} />
+                            <input type="text" placeholder='Card Number' value={cardNumber} onChange={(e) => setCardnumber(e.target.value)} />
                         </div>
                         <div className='expirationcvv'>
-                            <input type="text" placeholder='Expiration' />
-                            <input type="text" placeholder='CVV' />
+                            <input type="text" placeholder='Expiration' value={expiration} onChange={(e) => setExpiration(e.target.value)} />
+                            <input type="text" placeholder='CVV' value={cvv} onChange={(e) => setCvv(e.target.value)} />
                         </div>
                         <hr id='linesborder' />
-
                         <div className='billingtext'>
                             <div className='billcontainer'><span>Subtotal</span><span><MdCurrencyRupee />{Subtotal}</span></div>
                             <div className='billcontainer'><span>shipping</span><span><MdCurrencyRupee />{newSubTotal}</span></div>
                             <div className='billcontainer'><span>Total(incl.taxes)</span><span><MdCurrencyRupee />{Subtotal + newSubTotal}</span></div>
                         </div>
 
-                        <div className='billbtn'>
-                            <div className='billbtntext'>
+                        <div className='billbtn' onClick={orderPurches}>
+                            <div className='billbtntext' >
                                 <span>Payment</span>
                                 <span><MdCurrencyRupee />{Subtotal + newSubTotal}</span>
                             </div>

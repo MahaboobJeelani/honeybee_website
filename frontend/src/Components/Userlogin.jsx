@@ -20,7 +20,6 @@ const Login = () => {
         axios.post(`http://localhost:8081/login`, payload)
             .then((res) => {
                 localStorage.setItem("token", res.data.token)
-                // login()
                 toast.success('Login Successfully');
                 navigate('/')
             }).catch((error) => {
@@ -37,7 +36,7 @@ const Login = () => {
                 <label htmlFor="">Password</label>
                 <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password' />
                 <button type='submit'>submit</button>
-                <p>Don't have account <Link to='/adminregister'>Register</Link></p>
+                <p>Don't have account <Link to='/userregister'>Register</Link></p>
             </form>
             <ToastContainer />
         </div>

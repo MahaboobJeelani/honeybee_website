@@ -13,7 +13,7 @@
     display: flex;
     border-radius: 10px;
     box-shadow: 0px 0px 10px grey;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 .admincontent {
@@ -30,12 +30,12 @@
 
 .formcontainer {
     width: 50%;
-    border: 2px solid green;
+    /* border: 2px solid green; */
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     gap: 10px;
-    padding: 4rem;
+    padding: 3rem;
     background: white;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;

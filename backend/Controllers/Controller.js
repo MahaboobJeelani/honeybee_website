@@ -1,4 +1,4 @@
-const { honeyModel, honeydata, userDatas, adminorderDetails } = require('../Models/Model')
+const { honeyModel, honeydata, userDatas, adminorderDetails, addressDetails } = require('../Models/Model')
 const jwt = require('jsonwebtoken')
 
 const userRegister = async (req, resp) => {
@@ -84,7 +84,6 @@ const singleProduct = async (req, resp) => {
     const id = req.params.id
     try {
         const findProduct = await honeydata.findById(id)
-        console.log(findProduct);
         resp.status(200).send(findProduct)
     } catch (error) {
         resp.status(500).send(error.message)
@@ -186,14 +185,21 @@ const orderDetails = async (req, resp) => {
     const { userid } = req.params
     try {
         const findusers = await honeyModel.findById(userid);
+
         if (!findusers) {
             return resp.status(404).send("user not found")
         }
+
         const orderDetails = findusers.cart.map(item => item._id)
-        const orders = await adminorderDetails.insertMany({
+        const totalAmount = findusers.cart.reduce((acc, item) => acc + item.quantity * item.price, 0)
+
+        const orders = new adminorderDetails({
             product: orderDetails,
-            user: userid
-        }).populate();
+            user: userid,
+            totalAmount: totalAmount
+        })
+
+        await orders.save();
         resp.status(200).send('Order Successfully Placed')
     } catch (error) {
         resp.status(500).send(error.message)
@@ -201,12 +207,47 @@ const orderDetails = async (req, resp) => {
 }
 
 const getOrderDetails = async (req, resp) => {
+    const { orderid } = req.params
     try {
-        const orderDetails = await adminorderDetails.find();
+        const orderDetails = await adminorderDetails.find({ _id: orderid }).populate({ path: 'product' }).populate({ path: 'user', select: 'username email' });
         resp.status(200).send(orderDetails)
     } catch (error) {
         resp.status(500).send(error.message);
     }
 }
 
-module.exports = { userRegister, userLogin, insertHoneydata, getData, userData, singleProduct, cartItems, getCartItems, removeCartItem, changeQuantity, updateProduct, deleteProduct, totalUsers, orderDetails, getOrderDetails }
+const addressData = async (req, resp) => {
+    const { userid } = req.params
+    const { address, street, state, city, zipcode, country, phone } = req.body
+    try {
+        const findUser = await honeyModel.findById(userid)
+        if (!findUser) {
+            return resp.status(404).send("user not found");
+        }
+        const createAddress = new addressDetails({
+            user: userid,
+            address: address,
+            street: street,
+            state: state,
+            city: city,
+            zipcode: zipcode,
+            country: country,
+            phone: phone
+        })
+        await createAddress.save();
+        resp.send("Address Created Successfully")
+    } catch (error) {
+        resp.status(500).send(error.message)
+    }
+}
+
+const getAddress = async (req, resp) => {
+    try {
+        const fetchAddress = await addressDetails.find().populate('user')
+        resp.send(fetchAddress)
+    } catch (error) {
+        resp.status(500), send(error.message)
+    }
+}
+
+module.exports = { userRegister, userLogin, insertHoneydata, getData, userData, singleProduct, cartItems, getCartItems, removeCartItem, changeQuantity, updateProduct, deleteProduct, totalUsers, orderDetails, getOrderDetails, addressData, getAddress }

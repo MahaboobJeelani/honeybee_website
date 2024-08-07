@@ -16,7 +16,8 @@ const honeySchema = new mongoose.Schema({
     role: { type: String },
     cart: [honeydataSchema],
     isActive: { type: Boolean, default: false },
-    earnings: { type: Number, default: 0, required: false }
+    earnings: { type: Number, default: 0, required: false },
+    address: [{ type: mongoose.Schema.Types.ObjectId, ref: 'address' }]
 }, { timestamps: true })
 
 const userData = new mongoose.Schema({
@@ -27,12 +28,27 @@ const userData = new mongoose.Schema({
     state: { type: String, required: true }
 })
 
-const orderDetails = new mongoose.Schema(
-    {
-        product: { type: mongoose.Schema.Types.ObjectId, ref: "honeydata" },
-        user: { type: mongoose.Schema.Types.ObjectId, ref: "userdata" }
-    }
-)
+const orderDetails = new mongoose.Schema({
+    product: [{ type: mongoose.Schema.Types.ObjectId, ref: "honeydata" }],
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "honeyadmi" },
+    totalAmount: { type: Number, required: true },
+    status: { type: String, default: "pending" }
+}, { timestamps: true })
+
+
+const addresSchema = new mongoose.Schema({
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'honeyadmi' },
+    address: { type: String, required: true },
+    street: { type: String, required: true },
+    state: { type: String, required: true },
+    city: { type: String, required: true },
+    zipcode: { type: String, required: true },
+    country: { type: String, required: true },
+    phone: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
+})
+
 
 const honeyModel = mongoose.model('honeyadmi', honeySchema)
 
@@ -42,4 +58,6 @@ const userDatas = mongoose.model('userdata', userData)
 
 const adminorderDetails = mongoose.model('orderdetails', orderDetails)
 
-module.exports = { honeyModel, honeydata, userDatas, adminorderDetails }
+const addressDetails = mongoose.model('address', addresSchema)
+
+module.exports = { honeyModel, honeydata, userDatas, adminorderDetails, addressDetails }
