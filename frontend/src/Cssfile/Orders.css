@@ -6,6 +6,10 @@
     border: 2px solid rgb(230, 230, 230);
 }
 
+.userordersplaced {
+    margin-left: 0rem;
+}
+
 .orders>p>span {
     font-size: .6rem;
     color: rgb(175, 175, 175);

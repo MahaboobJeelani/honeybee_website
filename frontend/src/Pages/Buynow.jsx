@@ -95,16 +95,13 @@ const Buynow = () => {
     };
 
     const orderPurches = () => {
-        // if (cardholdername === '' || cardNumber === '' || expiration === '' || cvv === '') {
-        //     toast.warning("input field empty")
-        // }
-        // if (cardholdername.toString() === 'mahaboob' || cardNumber === 123456789012 || expiration === '08/25' || cvv === 123) {
-        //     toast.success("Success")
-        //     navigate('/honey/order')
-        // }
-
-        navigate('/honey/order')
-
+        if (!cardholdername || !cardNumber || !expiration || !cvv) {
+            toast.warning("input field empty")
+        }
+        if (cardholdername.toString() === 'mahaboob' || cardNumber === 123456789012 || expiration === '08/25' || cvv === 123) {
+            toast.success("Success")
+            navigate('/honey/order')
+        }
     }
 
 

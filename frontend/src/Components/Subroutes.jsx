@@ -8,6 +8,7 @@ import Buynow from '../Pages/Buynow'
 import Profile from '../Pages/Profile'
 import Errorpage from './Errorpage'
 import Userorder from '../Pages/Userorder'
+import Placedorder from '../Pages/Placedorder'
 // import { jwtDecode } from 'jwt-decode';
 // import { useAuth, AuthProvider } from '../Context/AuthContext';
 
@@ -49,6 +50,7 @@ const Subroutes = () => {
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/*' element={<Errorpage />} />
                 <Route path='/order' element={<Userorder />} />
+                <Route path='/orderitems' element={<Placedorder />} />
             </Routes>
             {/* </AuthProvider> */}
         </div>

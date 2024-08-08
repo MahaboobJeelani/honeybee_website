@@ -216,6 +216,17 @@ const getOrderDetails = async (req, resp) => {
     }
 }
 
+
+const userOrder = async (req, resp) => {
+    const { userid } = req.params;
+    try {
+        const userOrders = await adminorderDetails.find({ user: userid }).populate('product');
+        resp.send(userOrders);
+    } catch (error) {
+        resp.status(500).send(error.message);
+    }
+};
+
 const addressData = async (req, resp) => {
     const { userid } = req.params
     const { address, street, state, city, zipcode, country, phone } = req.body
@@ -250,4 +261,4 @@ const getAddress = async (req, resp) => {
     }
 }
 
-module.exports = { userRegister, userLogin, insertHoneydata, getData, userData, singleProduct, cartItems, getCartItems, removeCartItem, changeQuantity, updateProduct, deleteProduct, totalUsers, orderDetails, getOrderDetails, addressData, getAddress }
+module.exports = { userRegister, userLogin, insertHoneydata, getData, userData, singleProduct, cartItems, getCartItems, removeCartItem, changeQuantity, updateProduct, deleteProduct, totalUsers, orderDetails, getOrderDetails, addressData, getAddress, userOrder }

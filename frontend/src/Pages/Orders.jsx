@@ -7,7 +7,6 @@ const Orders = () => {
     useEffect(() => {
         axios.get(`http://localhost:8081/honeydata`)
             .then((res) => {
-                // console.log(res.data);
                 setOrderproducts(res.data);
             }).catch((error) => {
                 console.log(error.message);

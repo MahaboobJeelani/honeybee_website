@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { IoIosMenu, IoMdHelpCircle } from "react-icons/io";
 import { HiMiniXMark } from "react-icons/hi2";
 import { RiLogoutCircleRFill } from "react-icons/ri";
+import { BsFillCartCheckFill } from "react-icons/bs";
 
 const Navbar = () => {
     let [displayprofile, setDisplayprofile] = useState(null);
@@ -117,6 +118,11 @@ const Navbar = () => {
                         <div className='profiletext' onClick={profiledisplay}>
                             <p><MdAccountCircle className='profileiconnav' /></p>
                             <p><Link to='/honey/profile'>Edit Profile</Link></p>
+                        </div>
+
+                        <div className='profiletext' onClick={profiledisplay}>
+                            <p><BsFillCartCheckFill className='profileiconnav' /></p>
+                            <p><Link to='/honey/orderitems'>Order</Link></p>
                         </div>
 
                         <div className='profiletext' onClick={profiledisplay}>

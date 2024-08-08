@@ -159,7 +159,6 @@
 }
 
 .profiledisplay {
-    height: 9rem;
     width: 12rem;
     position: absolute;
     top: 4rem;
@@ -266,7 +265,7 @@
     }
 
 
-    .logintextcontainer{
+    .logintextcontainer {
         display: none;
     }
 
@@ -289,9 +288,7 @@
         display: none;
     }
 
-    .cart{
-        
-    }
+    .cart {}
 
     .ullist>ul {
         display: flex;

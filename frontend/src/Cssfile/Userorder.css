@@ -147,8 +147,12 @@
     width: 4rem;
     margin-right: 1rem;
     border: 2px solid rebeccapurple;
-    object-fit: contain;
+    object-fit: cover;
     overflow: hidden;
+}
+
+.itemimage img {
+    width: 135%;
 }
 
 .itemtextcontainer {
@@ -168,6 +172,10 @@
     font-weight: 500;
     margin-top: -.8rem;
     justify-content: space-between;
+}
+.itemsselected{
+    font-weight: 500;
+    font-size: .7rem;
 }
 
 .itemname>p:last-child {
@@ -200,7 +208,7 @@
     color: white;
 }
 
-.creditcardsicons{
+.creditcardsicons {
     cursor: pointer;
     font-size: 1.2rem;
 }
