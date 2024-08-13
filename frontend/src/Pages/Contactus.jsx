@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
 import '../Cssfile/Contactus.css'
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { setName, setEmail, setPhone, setAddress, setState, resetForm } from '../Store/contactSlice'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Contactus = () => {
-    let [name, setName] = useState('')
-    let [email, setEmail] = useState('')
-    let [phone, setPhone] = useState('')
-    let [address, setAddress] = useState('')
-    let [state, setState] = useState('')
+    const dispatch = useDispatch()
+    const { name, email, address, phone, state } = useSelector(state => state.contact)
 
-    const handleContact = (e) => {
+    const handleContact = async (e) => {
         e.preventDefault()
+        if (!name || !email || !phone || !address || !state) toast.warning('input fields are empty')
         let payload = {
             name: name,
             email: email,
@@ -21,13 +21,9 @@ const Contactus = () => {
             address: address,
             state: state
         }
-        axios.post(`http://localhost:8081/createuser`, payload)
+        await axios.post(`http://localhost:8081/createuser`, payload)
             .then((res) => {
-                setName('')
-                setEmail('')
-                setPhone('')
-                setAddress('')
-                setState('')
+                dispatch(resetForm())
                 toast.success("Data Created Successfully")
             }).catch((error) => {
                 console.log(error.message);
@@ -42,12 +38,12 @@ const Contactus = () => {
                     <h3>Contact Us</h3>
                 </div>
                 <ToastContainer />
-                <input type="text" placeholder='Enter Name' value={name} onChange={(e) => setName(e.target.value)} />
-                <input type="email" placeholder='Enter Email' value={email} onChange={(e) => setEmail(e.target.value)} />
-                <input type="tel" placeholder='Enter Phone Number' value={phone} onChange={(e) => setPhone(e.target.value)} />
-                <input type="text" placeholder='Enter Address' value={address} onChange={(e) => setAddress(e.target.value)} />
+                <input type="text" placeholder='Enter Name' value={name} onChange={(e) => dispatch(setName(e.target.value))} />
+                <input type="email" placeholder='Enter Email' value={email} onChange={(e) => dispatch(setEmail(e.target.value))} />
+                <input type="tel" placeholder='Enter Phone Number' value={phone} onChange={(e) => dispatch(setPhone(e.target.value))} />
+                <input type="text" placeholder='Enter Address' value={address} onChange={(e) => dispatch(setAddress(e.target.value))} />
 
-                <select onChange={(e) => setState(e.target.value)}>
+                <select onChange={(e) => dispatch(setState(e.target.value))}>
                     <option>Select State</option>
                     <option>Karnataka</option>
                     <option>Kerala</option>

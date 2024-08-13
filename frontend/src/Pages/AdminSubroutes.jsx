@@ -1,7 +1,6 @@
 import React from 'react'
 import AdminMenu from './AdminMenu';
 import { Route, Routes } from 'react-router-dom';
-// import CreateProduct from './CreateProduct';
 
 
 const AdminSubroutes = () => {

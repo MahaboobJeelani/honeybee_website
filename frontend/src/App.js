@@ -15,6 +15,8 @@ import { useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import AuthContext from './Context/AuthContext';
 import AdminSubroutes from './Pages/AdminSubroutes';
+import store from './Store/store'
+import { Provider } from 'react-redux'
 
 const App = () => {
   let navigate = useNavigate();
@@ -55,18 +57,20 @@ const App = () => {
 
   return (
     <div className="apppage">
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/role" element={<Rolepage />} />
-        <Route path="/adminregister" element={<Register />} />
-        <Route path="/userregister" element={<Userregister />} />
-        <Route path="/adminlogin" element={<Adminlogin />} />
-        <Route path="/userlogin" element={<Userlogin />} />
-        <Route path='*' element={<Errorpage />} />
-        <Route path='/honey/*' element={<Subroutes />} />
+      <Provider store={store}>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/role" element={<Rolepage />} />
+          <Route path="/adminregister" element={<Register />} />
+          <Route path="/userregister" element={<Userregister />} />
+          <Route path="/adminlogin" element={<Adminlogin />} />
+          <Route path="/userlogin" element={<Userlogin />} />
+          <Route path='*' element={<Errorpage />} />
+          <Route path='/honey/*' element={<Subroutes />} />
 
-        <Route path='/admin/*' element={<AuthContext Child={AdminSubroutes} />} />
-      </Routes>
+          <Route path='/admin/*' element={<AuthContext Child={AdminSubroutes} />} />
+        </Routes>
+      </Provider>
     </div>
   );
 }
