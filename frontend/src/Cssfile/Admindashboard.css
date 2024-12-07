@@ -1,0 +1,39 @@
+.dashboard {
+    margin: 1rem;
+}
+
+.adminnav {
+    display: flex;
+    /* border: 2px solid green; */
+    justify-content: space-between;
+}
+
+.adminnav>p {
+    font-weight: 600;
+}
+
+.adminnav>p:first-child {
+    background: green;
+    color: white;
+    padding: .5rem;
+    border-radius: 2px;
+}
+
+.adminnav>p:first-child>span {
+    padding: .2rem;
+    border-radius: 2px;
+    background: white;
+    color: black;
+}
+
+.adminnav>p:last-child {
+    padding: .2rem;
+    border-radius: 4px;
+    border: 2px solid rgb(208, 208, 208);
+}
+
+.dashboardmainmenu {
+    margin: .8rem 0rem .5rem 0rem;
+    /* border: 2px solid green; */
+}
+

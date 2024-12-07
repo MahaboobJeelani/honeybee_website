@@ -3,12 +3,14 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyparser = require('body-parser')
 const cors = require('cors')
+const cookieparser = require('cookie-parser')
 require('dotenv').config()
 
 const app = express()
 app.use(bodyparser.json())
 app.use(express.json())
 app.use(cors())
+app.use(cookieparser())
 
 mongoose.connect('mongodb://0.0.0.0:27017/honeydatabase')
     .then(() => { console.log('Database is connected with node js application ') })
@@ -17,5 +19,5 @@ mongoose.connect('mongodb://0.0.0.0:27017/honeydatabase')
 app.use('/', honeyRoutes)
 
 app.listen(process.env.PORT, () => {
-    console.log(`Server is running on the port ${process.env.PORT}`);
+    console.log(`Server is running on the port http://localhost:${process.env.PORT}/`);
 })

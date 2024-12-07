@@ -1,0 +1,214 @@
+.userorderdetails {
+    height: 100%;
+    background: rgb(239, 239, 239);
+    color: rgb(53, 53, 53);
+    /* border: 2px solid red; */
+}
+
+.userorderdata {
+    margin: 0rem 7rem;
+    background: white;
+    padding: 0rem 1rem;
+    border: 2px solid rgb(232, 232, 232);
+    border-radius: 5px;
+}
+
+.userorderdata>span {
+    width: 9%;
+    font-size: .8rem;
+    margin-top: 1rem;
+    font-weight: 700;
+    /* border: 2px solid green; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: .6rem;
+    cursor: pointer;
+}
+
+.orderdetails {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* border: 2px solid purple; */
+    padding: 0rem 2rem;
+}
+
+.orderdetailsinfo>h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
+
+.orderdetailsinfo {
+    margin: 1rem;
+}
+
+.personalinfo {
+    background: #e1e9f0;
+    padding: 1rem;
+}
+
+.personalinfo>p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.orderuserdetails {
+    display: flex;
+    padding-bottom: 1rem;
+}
+
+.orderinput {
+    height: 2.2rem;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border: 2px solid rgb(237, 232, 232);
+    padding-left: .3rem;
+}
+
+.orderinput>input {
+    height: 100%;
+    width: 97%;
+    border: none;
+    padding-left: 1rem;
+}
+
+.orderinputtext {
+    margin-left: .5rem;
+}
+
+.orderinput>input:focus {
+    outline: none;
+}
+
+.orderemail {
+    height: 2rem;
+    width: 100%;
+    background: white;
+    padding-left: .3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orderemail>input {
+    height: 100%;
+    width: 97%;
+    border: none;
+    padding-left: 1rem;
+
+}
+
+.orderemail>input:focus {
+    outline: none;
+}
+
+.shippingaddress {
+    margin-top: 1.5rem;
+    background: #e1e9f0;
+    padding: 1rem;
+}
+
+.shippingaddress>h6 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.shippingdetails>input {
+    width: 100%;
+}
+
+.ordersummary {
+    margin-top: 2.5rem;
+    background: #e1e9f0;
+    /* border: 2px solid red; */
+    padding: 1rem;
+}
+
+.ordersummary>h3 {
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: rgb(37, 37, 37);
+}
+
+.itemdata {
+    display: flex;
+}
+
+.itemimage {
+    height: 4rem;
+    width: 4rem;
+    margin-right: 1rem;
+    border: 2px solid rebeccapurple;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.itemimage img {
+    width: 135%;
+}
+
+.itemtextcontainer {
+    height: 4rem;
+    width: 78%;
+    /* border: 1px solid green; */
+}
+
+.itemtextcontainer>p {
+    font-size: .9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    /* border: 2px solid green; */
+}
+
+.itemname {
+    display: flex;
+    font-weight: 500;
+    margin-top: -.8rem;
+    justify-content: space-between;
+}
+.itemsselected{
+    font-weight: 500;
+    font-size: .7rem;
+}
+
+.itemname>p:last-child {
+    display: flex;
+    align-items: center;
+}
+
+.itemsubtotal {
+    margin-top: 1rem;
+    /* border: 2px solid red; */
+}
+
+.itemsubtotal>span {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ordersummary>aside {
+    margin-bottom: 1rem;
+    /* border: 2px solid rgb(255, 0, 0); */
+}
+
+.ordersummary>aside>button {
+    width: 100%;
+    padding: .3rem;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 4px;
+    background: rgb(17, 43, 103);
+    color: white;
+}
+
+.creditcardsicons {
+    cursor: pointer;
+    font-size: 1.2rem;
+}

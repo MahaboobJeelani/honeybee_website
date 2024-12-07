@@ -1,13 +1,14 @@
 import '../Cssfile/Adminlogin.css'
 import axios from 'axios'
 import React, { useState } from 'react'
-
 import { Link, useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
 
 const Login = () => {
-    let [email, setEmail] = useState('fake@gmail.com')
-    let [password, setPassword] = useState('fake@')
+    let [email, setEmail] = useState('guru@gmail.com')
+    let [password, setPassword] = useState('guru@')
 
+    // let { login } = useAuth()
     let navigate = useNavigate()
 
     let loginAdmin = (e) => {
@@ -18,9 +19,9 @@ const Login = () => {
         }
         axios.post(`http://localhost:8081/login`, payload)
             .then((res) => {
-                console.log(res.data.login);
+                localStorage.setItem("token", res.data.token)
+                toast.success('Login Successfully');
                 navigate('/')
-                localStorage.setItem("login", res.data.login)
             }).catch((error) => {
                 console.log(error.message);
             })
@@ -35,9 +36,9 @@ const Login = () => {
                 <label htmlFor="">Password</label>
                 <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password' />
                 <button type='submit'>submit</button>
-                <p>Don't have account <Link to='/adminregister'>Register</Link></p>
+                <p>Don't have account <Link to='/userregister'>Register</Link></p>
             </form>
-
+            <ToastContainer />
         </div>
     )
 }

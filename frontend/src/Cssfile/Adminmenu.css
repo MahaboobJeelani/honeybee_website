@@ -1,0 +1,150 @@
+.adminmenu {
+    display: flex;
+    /* border: 2px solid red; */
+}
+
+.adminlogo {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 16.5rem;
+}
+
+.adminlogo>a {
+    text-decoration: none;
+}
+
+.adminlogo>a>.logosvg {
+    color: white;
+}
+
+.logomi {}
+
+.adminlogo>a>.farm {
+    color: rgb(255, 128, 0);
+}
+
+.adminmenubtns {
+    height: 30rem;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY_al7KtNANAWnnzsui3jdeWMwvMKw3OnGXRV8MK8n_IjEF8CXy0N-5sb-mME9Tya7gJo&usqp=CAU');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.adminmenubtns::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(27, 27, 27, 0.8);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+}
+
+.adminmenubtns>* {
+    position: relative;
+    z-index: 2;
+}
+
+
+.adminmenubtns>p {
+    color: white;
+    font-size: 1rem;
+}
+
+.adminicons {
+    color: white;
+    font-weight: 600;
+    margin-right: .5rem;
+}
+
+.adminbtns {
+    padding: .5rem;
+    padding-left: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+.adminbutton {
+    background: none;
+    color: white;
+    border: none;
+}
+
+.actived {
+    background: rgb(128, 128, 128, 0.3);
+    border-right: 4px solid orangered;
+}
+
+
+.adminbutton:focus {
+    outline: none;
+}
+
+.contentdashboard {
+    width: 100%;
+}
+
+.adminlogoutyes {
+    height: 100vh;
+    width: 100vw;
+    display: block;
+    position: absolute;
+    background: transparent;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(34, 34, 34, 0.7);
+}
+
+.adminloginno {
+    display: none;
+    border: 2px solid green;
+}
+
+.adminlogoutdashboard {
+    height: 25%;
+    width: 25%;
+    background: white;
+    border: 2px solid rgb(189, 189, 189);
+    border-radius: 5px;
+    box-shadow: 0px 0px 25px rgb(123, 123, 123);
+    text-align: center;
+    margin: 1rem;
+    overflow: hidden;
+}
+
+.adminlogoutdashboard>h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-style: italic;
+    color: rgb(38, 37, 37);
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+.adminlogoutdashboard>p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-bottom: .9rem;
+}
+
+.logoutbtns {
+    height: 21%;
+}
+
+.logoutbtns>button {
+    width: 50%;
+    height: 100%;
+    background: transparent;
+    border: 1px solid rgb(220, 220, 220);
+}

@@ -1,0 +1,21 @@
+.statics {
+    display: flex;
+    /* border: 2px solid red; */
+}
+
+.staticschart {
+    border: 2px solid rgb(211, 211, 211);
+    width: 40%;
+}
+
+.staticschart>p {
+    text-align: center;
+    padding-top: .7rem;
+    font-weight: 600;
+}
+
+.orderdashboard {
+    max-height: 26rem;
+    width: 100%;
+    overflow: hidden;
+}

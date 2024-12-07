@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import '../Cssfile/Register.css'
 import { Link, useNavigate } from 'react-router-dom'
@@ -7,6 +7,7 @@ const Userregister = () => {
     let [username, setUsernamae] = useState('fake_user')
     let [email, setEmail] = useState('fake@gmail.com')
     let [password, setPassword] = useState('fake@')
+
     let navigation = useNavigate()
 
     const registerUser = (e) => {
@@ -36,11 +37,11 @@ const Userregister = () => {
 
                 <form action="" onSubmit={registerUser} className='formcontainer'>
                     <label htmlFor="">Username</label>
-                    <input type="text" value={username} onChange={(e) => setUsernamae(e.target.value)} placeholder='username' />
+                    <input type="text" value={username} onChange={(e) => setUsernamae(e.target.value)} placeholder='Username' />
                     <label htmlFor="">Email</label>
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='email' />
+                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email' />
                     <label htmlFor="">Password</label>
-                    <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password' />
+                    <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' />
                     <button type='submit'>submit</button>
                     <div>
                         <p>Already have an account <Link to='/userlogin'>Sign in</Link></p>

@@ -47,7 +47,7 @@ const CarouselSlider = () => {
                             Discover our finest honey, crafted for your delight, health benefits, and sweet moments to savor, enjoy, and make every day special.
                         </p>
                         <Link to='/honey/products'>
-                            <button className="animated-button">View Products</button>
+                            <button className="animated">View Products</button>
                         </Link>
                     </div>
                     <img src={SliderImg3} className='d-block w-100' alt='sliderone' />

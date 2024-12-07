@@ -7,7 +7,6 @@
 }
 
 .footerbox {
-    /* border: 2px solid white; */
     padding-top: 2rem;
     color: white;
 }
@@ -43,7 +42,6 @@ nav {
     display: flex;
     justify-content: space-evenly;
     margin: 2rem 0px;
-    /* border: 2px solid white; */
 }
 
 .icons {
@@ -117,4 +115,70 @@ nav {
 
 .mailicon {
     font-size: medium;
+}
+
+
+@media screen and (max-width:480px) {
+    .footercontainer {
+        height: 50rem;
+        padding: 0rem;
+        background: rgb(36, 36, 36);
+        display: block;
+        position: relative;
+    }
+
+
+
+    .footerbox>p {
+        margin: 0px;
+    }
+
+    .footerbox>a {
+        text-decoration: none;
+    }
+
+    .footercollection {
+        display: block;
+        padding-bottom: 0rem;
+        margin-bottom: 0rem;
+    }
+
+    .footerlogo {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .socialicons {
+        display: none;
+    }
+
+    .locationcontainer {
+        margin: 0px;
+        margin-bottom: 1rem;
+    }
+
+
+    .footercollection>h5 {
+        padding-bottom: 1rem;
+    }
+
+    .footercollection>p>a {
+        padding: -1rem;
+        line-height: 0px;
+        margin: 0rem;
+        text-decoration: none;
+        color: white;
+    }
+
+    .newletter {
+        display: flex;
+        height: 3rem;
+        width: 100%;
+        border: 2px solid white;
+    }
 }

@@ -1,0 +1,142 @@
+.adminproductsview {
+    margin: 1rem;
+    /* border: 2px solid red; */
+}
+
+.productgridtext {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productgridtext>p:first-child {
+    font-size: 1.2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+}
+
+.productgridtext>p>button {
+    height: 2.5rem;
+    width: 10rem;
+    background: #005792;
+    color: white;
+    border: 2px solid rgb(236, 236, 236);
+    border-radius: 4px;
+    /* border: 2px solid black;  */
+}
+
+.productgridtext>p>button>a {
+    padding: .5rem 1.2rem;
+    text-decoration: none;
+    color: white;
+    /* border: 2px solid red;  */
+}
+
+.createiconreact {
+    margin-right: 1rem;
+}
+
+.productviewgrid {
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgb(220, 220, 220);
+}
+
+.admingetproducts {
+    /* border: 2px solid red; */
+}
+
+.admingetproducts>input {
+    height: 2rem;
+    width: 25rem;
+    border: 2px solid grey;
+    border-radius: 4px;
+    padding-left: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: .8rem;
+    margin: 1rem 1rem 0rem 1rem;
+}
+
+.adminproductedit {
+    /* border: 2px solid green; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.adminproductcart {
+    width: 15%;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 7px grey;
+    border: 2px solid rgb(168, 168, 168);
+}
+
+.adminimg {
+    /* border: 2px solid green; */
+    overflow: hidden;
+    scrollbar-width: none;
+    object-fit: contain;
+    margin: .2rem;
+}
+
+.adminimg>img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.adminproductname {
+    margin: 0rem .4rem;
+    /* border: 2px solid red; */
+}
+
+.adminproductname>p {
+    margin: -.1rem;
+    padding: .2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .8rem;
+    color: rgb(53, 53, 53);
+}
+
+.adminproductname>p:last-child {
+    font-weight: 600;
+}
+
+.adminproductbtn {
+    /* border: 2px solid peru; */
+    margin: .1rem .4rem 1rem;
+}
+
+.adminproductbtn>button {
+    width: 47.5%;
+    background: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .8rem;
+    font-weight: 700;
+    border-radius: 3px;
+    /* margin: 0rem .3rem; */
+}
+
+.adminproductbtn>button:first-child {
+    margin-right: .5rem;
+}
+
+.adminproductbtn>button>a {
+    text-decoration: none;
+    color: rgb(34, 34, 34);
+}
+
+.editicon {
+    margin-right: .3rem;
+}
+
+.deleteiconbtn {
+    margin-right: .3rem;
+    color: red;
+}
+
+
+.adminproductbtn>button:last-child {
+    color: red;
+}

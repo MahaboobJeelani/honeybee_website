@@ -8,7 +8,6 @@ import { GiBee } from "react-icons/gi";
 import { GiHoneyJar, GiHoneycomb, GiButterflyFlower, GiEmbrassedEnergy } from "react-icons/gi";
 import { GiTreeBeehive } from "react-icons/gi";
 import { Link } from 'react-router-dom';
-import Products from '../Pages/Products';
 
 
 const Body = () => {
@@ -20,11 +19,14 @@ const Body = () => {
             </div>
 
             <div className='ourservices'>
+
                 <div className='servicecontainer'>
+
                     <div className='contenttext'>
                         <h3>OUR SERVICES</h3>
                         <p>We harvest 100% pure, raw honey straight from the hive, ensuring the highest quality and natural sweetness.</p>
                     </div>
+
                     <div>
                         <div className='hexgonalcontainer'>
 
@@ -82,12 +84,14 @@ const Body = () => {
                         </div>
                     </div>
                 </div>
-                <div className='servicebtn'>
+                {/* <div className='servicebtn'>
                     <Link to='/honey/products'>
-                        <button className="animated-button">View Products</button>
+                        <button className="button-btn viewproductsbtn">View Products</button>
                     </Link>
-                </div>
+                </div> */}
             </div>
+
+            {/* ==================================== */}
             <div className='products'>
                 <div className='bodyproduct'>
                     <h3>WHY CHOOSE OUR PRODUCTS</h3>
@@ -96,9 +100,11 @@ const Body = () => {
                     <div className='box'>
 
                         <div className='circleproductcontainer'>
+
                             <div className='circleproduct'>
                                 <GiBee className='giicon' />
                             </div>
+
                             <div className=''>
                                 <h5>Natural Bees</h5>
                                 <p>Discover the essential role and beauty of natural bees today.</p>
@@ -124,6 +130,7 @@ const Body = () => {
                                 <p>Handcrafted Honey Comb for a Pure and Sweet Experience.</p>
                             </div>
                         </div>
+
 
                     </div>
 
@@ -161,8 +168,13 @@ const Body = () => {
                                 <p>Boost your immunity with our natural honey products.</p>
                             </div>
                         </div>
-
                     </div>
+                </div>
+
+                <div className='servicebtn'>
+                    <Link to='/honey/products'>
+                        <button className="button-btn viewproductsbtn">View Products</button>
+                    </Link>
                 </div>
             </div>
         </div>
