@@ -7,8 +7,8 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
-    let [email, setEmail] = useState('fake123@gmail.com')
-    let [password, setPassword] = useState('fake123@')
+    let [email, setEmail] = useState('')
+    let [password, setPassword] = useState('')
 
     let navigate = useNavigate()
 

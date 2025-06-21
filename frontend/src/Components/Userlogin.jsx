@@ -5,8 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 
 const Login = () => {
-    let [email, setEmail] = useState('guru@gmail.com')
-    let [password, setPassword] = useState('guru@')
+    let [email, setEmail] = useState('')
+    let [password, setPassword] = useState('')
 
     // let { login } = useAuth()
     let navigate = useNavigate()

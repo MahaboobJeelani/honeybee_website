@@ -4,9 +4,9 @@ import '../Cssfile/Register.css'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Register = () => {
-    let [username, setUsernamae] = useState('guruprasad')
-    let [email, setEmail] = useState('guru123@gmail.com')
-    let [password, setPassword] = useState('guru123@')
+    let [username, setUsernamae] = useState('')
+    let [email, setEmail] = useState('')
+    let [password, setPassword] = useState('')
     let navigation = useNavigate()
 
 
