@@ -1,0 +1,85 @@
+.orders {
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin-left: 1rem;
+    border: 2px solid rgb(230, 230, 230);
+}
+
+.userordersplaced {
+    margin-left: 0rem;
+}
+
+.orders>p>span {
+    font-size: .6rem;
+    color: rgb(175, 175, 175);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.orders::-webkit-scrollbar {
+    width: 4px;
+}
+
+.orders::-webkit-scrollbar-thumb {
+    background: orange;
+    border-radius: 3px;
+}
+
+.orderproducts {}
+
+.orders>p {
+    text-align: center;
+    padding-top: .7rem;
+    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.productordernav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    border-top: 1px solid rgb(197, 197, 197);
+    /* border: 2px solid red; */
+}
+
+.productordernav:nth-child(even) {
+    background: rgb(241, 241, 241);
+}
+
+.productordernav>span {
+    width: 80%;
+    /* border: 2px solid red; */
+    overflow: hidden;
+    padding: .5rem 0rem;
+}
+
+.productordernav>span:first-child {
+    width: 20%;
+}
+
+.orderproduct {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: .8rem;
+}
+
+.viewbtn {
+    margin: .3rem 0rem;
+}
+
+.viewbtn>button {
+    width: 60%;
+    background: rgb(255, 166, 0, 0.2);
+    color: orange;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    border-radius: 5px;
+}
+
+.viewbtn>button:focus {
+    outline: none;
+}

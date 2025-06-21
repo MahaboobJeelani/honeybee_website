@@ -1,0 +1,62 @@
+.rolepage {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.bgimage {
+    height: 100%;
+    width: 100vw;
+    background-image: url(https://www.mashed.com/img/gallery/the-shady-side-of-honey/honey-is-full-of-sugar-and-calories-1628094907.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-filter: blur(2px);
+}
+
+.admincontainer {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: absolute;
+}
+
+.adminloginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.adminloginContainer>.adminlink {
+    height: 30%;
+    width: 27%;
+    border-left: 10px solid rgb(255, 132, 0);
+    border-right: 2px solid grey;
+    border-top: 2px solid grey;
+    border-bottom : 2px solid grey;
+    padding: 3rem;
+    border-radius: 0 5px 5px 0px;
+    text-decoration: none;
+    background: transparent;
+    backdrop-filter: blur(20px);
+}
+
+.adminloginContainer>.adminlink:hover {
+    box-shadow: 0px 0px 10px rgb(183, 181, 181);
+}
+
+
+.adminloginContainer>.adminlink>p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
+}
+
+.adminicon {
+    margin-top: 1rem;
+    font-size: xx-large;
+    color: rgb(255, 255, 255);
+    margin-left: 30px;
+}

@@ -1,0 +1,248 @@
+.productContainer {
+    margin: 0;
+    padding: 0;
+}
+
+.productdetail {
+    height: 35rem;
+    margin: 1rem 7rem;
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+}
+
+.imagecontainer {}
+
+.imagedata {
+    border: 2px solid rgb(170, 170, 170);
+    height: 26rem;
+    margin: 2rem 2rem 0rem 2rem;
+    object-fit: contain;
+    overflow: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    object-fit: contain;
+    box-shadow: 0 0 10px rgb(233, 233, 233);
+}
+
+.imagedata>img {
+    width: 30rem
+}
+
+.buytext {
+    display: flex;
+    margin: 2rem;
+}
+
+.buynow {
+    width: 100%;
+    height: 2.5rem;
+}
+
+.buynow>a {
+    text-decoration: none;
+}
+
+.buynow>a>button,
+.addtocart>button {
+    height: 100%;
+    width: 95%;
+    border-radius: 3px;
+    border: 1px solid black;
+    font-size: medium;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.buynow>a>button {
+    background: orange;
+}
+
+.addtocart>button {
+    background: green;
+    margin-left: 1rem;
+}
+
+
+
+.textcontainer {
+    margin: 2rem;
+}
+
+.productname {
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
+
+.currency>nav {
+    font-size: small;
+    margin-top: -2.5rem;
+    color: rgb(23, 23, 23);
+    font-weight: 500;
+}
+
+.ratingstart {
+    padding-bottom: 1rem;
+}
+
+.currency {}
+
+.singleproductdescr {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+    overflow: hidden;
+}
+
+.quantitychange {
+    width: 20%;
+    height: 3rem;
+    border: 2px solid green;
+}
+
+.quantitychange {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid rgb(60, 60, 60);
+    box-shadow: 0px 0px 5px rgb(235, 235, 235);
+    border-radius: 2px;
+}
+
+.quantitychange>button {
+    border: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+    background: transparent;
+    font-size: x-large;
+}
+
+.quantitychange>button:focus {
+    outline: none;
+}
+
+.quantitychange>p {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+
+@media screen and (max-width : 480px) {
+    .productContainer {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        /* border: 2px solid red; */
+    }
+
+    .productdetail {
+        height: 100%;
+        margin: 0rem 0rem;
+        display: block;
+        /* border: 2px solid green; */
+    }
+
+
+    .imagecontainer {
+        /* border: 2px solid purple; */
+    }
+
+
+    .textcontainer {
+        margin: 0rem .6rem;
+        /* border: 2px solid green; */
+    }
+
+    .imagedata {
+        border: 2px solid rgb(170, 170, 170);
+        height: 20%;
+        width: 60%;
+        margin: 1rem auto;
+        object-fit: contain;
+        box-shadow: 0 0 10px rgb(198, 198, 198);
+    }
+
+    .imagedata>img {
+        width: 18rem;
+        object-fit: cover;
+    }
+
+    .buytext {
+        margin: .6rem;
+    }
+
+    /* .buynow {
+        width: 100%;
+        height: 2.5rem;
+    } */
+
+    /* .buynow>a {
+        text-decoration: none;
+    } */
+
+    /* .buynow>a>button,
+    .addtocart>button {
+        height: 100%;
+        width: 95%;
+        border-radius: 3px;
+        border: 1px solid black;
+        font-size: medium;
+        font-weight: 600;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+    } */
+
+    /* .buynow>a>button {
+        background: orange;
+    } */
+
+    /* .addtocart>button {
+        background: green;
+        margin-left: 1rem;
+    } */
+
+
+
+
+    .productname {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: -1rem;
+    }
+
+    /* .currency>nav {
+        font-size: small;
+        margin-top: -2.5rem;
+        color: rgb(23, 23, 23);
+        font-weight: 500;
+    } */
+
+    .ratingstart {
+        font-size: .7rem;
+        padding-bottom: .5rem;
+    }
+
+    .currency {}
+
+    .singleproductdescr {
+        font-size: .9rem;
+    }
+
+    .quantity>p{
+        font-weight: 600;
+        margin-bottom: 0rem;
+    }
+
+    .quantitychange {
+        width: 25%;
+        height: 2.5rem;
+    }
+
+    .quantitychange>button {
+        font-size: x-large;
+    }
+}
