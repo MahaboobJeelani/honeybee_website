@@ -49,9 +49,13 @@ app.use(express.json())
 app.use(cors())
 app.use(cookieparser())
 
-mongoose.connect('mongodb://0.0.0.0:27017/honeydatabase')
-    .then(() => { console.log('Database is connected with node js application ') })
-    .catch((error) => console.log(error.message))
+mongoose.connect(process.env.MONGODB_URI, {
+  serverSelectionTimeoutMS: 5000, // 5 seconds timeout
+  socketTimeoutMS: 45000, // 45 seconds socket timeout
+})
+.then(() => console.log('Database connected successfully'))
+.catch(err => 
+  console.error('Connection error:', err.message));
 
 app.use('/', honeyRoutes)
 
