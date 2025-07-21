@@ -62,7 +62,7 @@ honeybee_website/
 
 ### 1. Backend Server Setup
 
-<img width="1113" height="767" alt="image" src="https://github.com/user-attachments/assets/b15812d3-239e-4376-9887-7187c43791ae" />
+<img width="1536" height="486" alt="image" src="https://github.com/user-attachments/assets/e215ffa0-3394-4b70-950b-53d4e8ded325" />
 
 ### 2. Product Creation Form (Frontend)
 
