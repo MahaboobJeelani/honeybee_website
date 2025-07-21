@@ -33,7 +33,7 @@ This application is designed to digitize and streamline the management and sales
 
 ## Project Structure
 
-
+```
 honeybee_website/
 ├── backend/
 │   ├── Server.js
@@ -51,7 +51,7 @@ honeybee_website/
 │   └── build/
 ├── .env
 └── package.json
-
+```
 
 ## Example Code Screenshots
 
