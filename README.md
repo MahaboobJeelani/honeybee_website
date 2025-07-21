@@ -31,6 +31,11 @@ This application is designed to digitize and streamline the management and sales
 - Payment and invoice tracking
 - Contact form for inquiries
 
+### Demo Video
+
+[![Watch the video](https://img.youtube.com/vi/HWRWR5fBlUg/0.jpg)](https://www.youtube.com/watch?v=HWRWR5fBlUg)
+
+
 ## Project Structure
 
 ```
