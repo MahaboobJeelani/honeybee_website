@@ -83,8 +83,8 @@ honeybee_website/
 
 1. Clone the repository.
 2. Set up `.env` with your MongoDB URI and HTTP port.
-3. Run backend: `npm run dev`
-4. Run frontend: `npm start` in the `frontend` directory.
+3. Run build: `npm run build`
+4. Run backend: `npm run dev`
 
 ## License
 
