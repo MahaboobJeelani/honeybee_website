@@ -1,70 +1,152 @@
-# Getting Started with Create React App
+# HoneyBee Farm Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Objective
 
-## Available Scripts
+This application is designed to digitize and streamline the management and sales of honey products for a honeybee farm. It provides a modern web interface for farm owners, admins, and customers to interact, manage products, and make purchases.
 
-In the project directory, you can run:
+## Why was this application developed?
 
-### `npm start`
+- To help honeybee farm owners manage their products, orders, and users efficiently.
+- To provide customers with a convenient way to browse, order, and learn about natural honey products.
+- To promote natural honey and educate users about beekeeping and honey production.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## What is the use of this application?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Farm Owners/Admins:** Add, edit, and delete products; view sales statistics; manage orders and users.
+- **Customers:** Browse honey products, place orders, view order history, and contact the farm.
+- **General Users:** Learn about honeybee farming and honey products.
 
-### `npm test`
+## Who can use this application?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Honeybee farm owners and administrators.
+- Customers interested in purchasing honey products.
+- Anyone interested in learning about honeybee farming.
 
-### `npm run build`
+## Main Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Product catalog and details
+- User and admin registration/login
+- Admin dashboard with sales stats
+- Cart and order management
+- Payment and invoice tracking
+- Contact form for inquiries
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+honeybee_website/
+├── backend/
+│   ├── Server.js
+│   ├── Controllers/
+│   ├── Models/
+│   └── Routes/
+├── frontend/
+│   ├── src/
+│   │   ├── Components/
+│   │   ├── Pages/
+│   │   ├── Cssfile/
+│   │   ├── Images/
+│   │   └── Store/
+│   ├── public/
+│   └── build/
+├── .env
+└── package.json
+```
 
-### `npm run eject`
+## Example Code Screenshots
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1. Backend Server Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```js
+// filepath: backend/Server.js
+const honeyRoutes = require('./Routes/Routes')
+const express = require('express')
+const mongoose = require('mongoose')
+const bodyparser = require('body-parser')
+const cors = require('cors')
+const cookieparser = require('cookie-parser')
+require('dotenv').config()
+const path = require("path");
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+const app = express()
+app.use(bodyparser.json())
+app.use(express.json())
+app.use(cors())
+app.use(cookieparser())
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+mongoose.connect(process.env.MONGODB_URI)
+    .then(() => { console.log('Database is connected with node js application ') })
+    .catch((error) => console.log(error.message))
 
-## Learn More
+app.use('/api', honeyRoutes)
+app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')))
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'build', 'index.html'));
+});
+app.listen(process.env.HTTP, () => {
+    console.log(`Server is running on the port http://localhost:${process.env.HTTP}/`);
+})
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 2. Product Creation Form (Frontend)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```jsx
+// filepath: frontend/src/Pages/CreateProduct.jsx
+<form action='button' className='createfrom' onSubmit={createHandler} >
+    <input type="text" placeholder='Enter Name' value={name} onChange={(e) => setName(e.target.value)} />
+    <input type="text" placeholder='Enter Description' value={description} onChange={(e) => setDescription(e.target.value)} />
+    <input type="text" placeholder='Enter Price' value={price} onChange={(e) => setPrice(e.target.value)} />
+    <input type="number" placeholder='Enter Quantity' value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+    <input type="text" placeholder='Enter Brand' value={brand} onChange={(e) => setBrand(e.target.value)} />
+    <input type="text" placeholder='Enter Image Link' value={imagelink} onChange={(e) => setImagelink(e.target.value)} />
+    <button type='submit' className='createbtn'>Create Product</button>
+</form>
+```
 
-### Code Splitting
+### 3. User Registration Component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```jsx
+// filepath: frontend/src/Components/Userregister.jsx
+const registerUser = (e) => {
+    e.preventDefault()
+    const payload = {
+        username: username,
+        email: email,
+        password: password,
+        role: 'user'
+    }
+    axios.post(`http://localhost:8081/register`, payload)
+        .then((res) => {
+            navigation('/userlogin')
+            console.log("Resgister successfully", res);
+        })
+        .catch((error) => {
+            console.log(error.message);
+        })
+}
+```
 
-### Analyzing the Bundle Size
+### 4. Admin Dashboard Stats
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```jsx
+// filepath: frontend/src/Components/Admintotal.jsx
+<div className='dashboardmenu totalmenulist totalorder'>
+    <p><FaChartPie /></p>
+    <p>5,000 <MdOutlineCurrencyRupee /> <br /> <span>Total Value of Sale</span></p>
+</div>
+<div className='dashboardmenu totalmenulist totalusers'>
+    <p><SlGraph /></p>
+    <p>{earnings}<MdOutlineCurrencyRupee /> <br /> <span>Your Balances</span></p>
+</div>
+```
 
-### Making a Progressive Web App
+## How to Run
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Clone the repository.
+2. Set up `.env` with your MongoDB URI and HTTP port.
+3. Run backend: `npm run dev`
+4. Run frontend: `npm start` in the `frontend` directory.
 
-### Advanced Configuration
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT
