@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(cors())
 app.use(cookieparser())
 
-const _dirname = path.resolve()
+// const _dirname = path.resolve()
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => { console.log('Database is connected with node js application ') })
@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGODB_URI)
 
 app.use('/api', honeyRoutes)
 
-app.use(express.static(path.join(_dirname, '..', 'frontend', 'build')))
+app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')))
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'frontend', 'build', 'index.html'));
