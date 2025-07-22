@@ -1,6 +1,6 @@
-<h2 style="color:orange;">HoneyBee Farm Website</h2> <!-- ❌ Won’t work on GitHub -->
+# HoneyBee Farm Website
 
-### Project Objective
+## Project Objective
 
 This application is designed to digitize and streamline the management and sales of honey products for a honeybee farm. It provides a modern web interface for farm owners, admins, and customers to interact, manage products, and make purchases.
 
