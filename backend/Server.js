@@ -27,6 +27,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'frontend', 'build', 'index.html'));
 });
 
-app.listen(process.env.HTTP, () => {
-    console.log(`Server is running on the port http://localhost:${process.env.HTTP}/`);
+app.listen(process.env.BACKEND_HTTP, () => {
+    console.log(`Server is running on the port http://localhost:${process.env.BACKEND_HTTP}/`);
 })

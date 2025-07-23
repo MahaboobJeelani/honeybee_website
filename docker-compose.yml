@@ -1,0 +1,45 @@
+# version: '3.8'
+
+# services:
+#   backend:
+#     image: honeybee-backend
+#     build:
+#       context: ./backend               # Builds from ./backend directory
+#       dockerfile: Dockerfile           # Uses Dockerfile inside ./backend
+#     container_name: honeybee_backend
+#     working_dir: /app/backend
+#     ports:
+#       - "${BACKEND_PORT:-3000}:8080"   # Maps local port to container port 8080
+#     environment:
+#       NODE_ENV: production
+#       MONGODB_URI: "${MONGODB_URI}"
+#       SECRET_KEY: "${SECRET_KEY}"
+#     volumes:
+#       - ./backend:/app/backend         # Live sync source code
+#       - /app/backend/node_modules      # Avoid overriding node_modules
+#     restart: unless-stopped
+
+
+
+version: '3.8'
+
+services:
+  backend:
+    image: honeybee-backend
+    build:
+      context: .                   # Root context, so frontend is accessible
+      dockerfile: Dockerfile       # Or Dockerfile.backend if renamed
+    container_name: honeybee_backend
+    working_dir: /app/backend
+    ports:
+      - "${BACKEND_HTTP}:8080"
+    environment:
+      NODE_ENV: production
+      BACKEND_HTTP: "${BACKEND_HTTP}" # Use the new environment variable
+      MONGODB_URI: "${MONGODB_URI}"
+      SECRET_KEY: "${SECRET_KEY}"
+    volumes:
+      - ./backend:/app/backend
+      - /app/backend/node_modules
+    restart: unless-stopped
+
