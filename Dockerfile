@@ -1,59 +1,38 @@
-# # Step 1: Build frontend (React/Vite)
-# FROM node:20 AS frontend-builder
+# ---------- Stage 1: Build React frontend ----------
+FROM node:20 AS frontend-builder
 
-# WORKDIR /app/frontend
-
-# COPY ../frontend/package*.json ./
-# RUN npm install
-
-# COPY ../frontend .
-# RUN npm run build
-
-
-# # Step 2: Build backend
-# FROM node:18
-
-# WORKDIR /app/backend
-
-# # Copy backend package files and install
-# COPY package*.json ./
-# RUN npm install
-
-# # Copy backend source
-# COPY . .
-
-# # Copy built frontend into backend/public
-# COPY --from=frontend-builder /app/frontend/build ./public
-
-# # Set environment variables and expose port
-# ENV NODE_ENV=production
-# EXPOSE 8080
-
-# CMD ["node", "Server.js"]
-
-
-# Step 1: Build frontend
-FROM node:18 AS frontend-builder
-
+# Set working directory for frontend
 WORKDIR /app/frontend
 
-COPY ./frontend/package*.json ./
+# Install frontend dependencies
+COPY frontend/package*.json ./
 RUN npm install
-COPY ./frontend .
+
+# Copy all frontend source files
+COPY frontend ./
+
+# Build the frontend (React)
 RUN npm run build
 
-# Step 2: Setup backend
-FROM node:18
 
-WORKDIR /app/backend
+# ---------- Stage 2: Set up backend and serve frontend ----------
+FROM node:20
 
-COPY ./package*.json ./
-RUN npm install
+# Set working directory for backend
+WORKDIR /app
 
-COPY ./backend .
+# Copy backend dependencies and install them
+COPY package*.json ./
+RUN npm install --production
 
-# Copy built frontend into backend/public
-COPY --from=frontend-builder /app/frontend/build ./public
+# Copy backend source code
+COPY backend ./backend
 
-EXPOSE 8080
-CMD ["node", "Server.js"]
+# Copy built frontend files from the previous stage
+COPY --from=frontend-builder /app/frontend/build ./frontend/build
+
+# Expose port (backend will run on this)
+EXPOSE 8081
+
+# Start the backend server
+CMD ["node", "backend/Server.js"]
