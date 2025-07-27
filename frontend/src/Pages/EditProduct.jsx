@@ -16,7 +16,7 @@ const EditProduct = ({ id }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:8081/singleproduct/${id}`)
+        axios.get(`http://localhost:8081/api/singleproduct/${id}`)
             .then((res) => {
                 const data = res.data
                 setName(data.name);

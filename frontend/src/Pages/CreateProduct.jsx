@@ -29,7 +29,7 @@ const CreateProduct = () => {
             brand : brand,
             imagelink: imagelink
         }
-        axios.post(`http://localhost:8081/create`, payload)
+        axios.post(`http://localhost:8081/api/create`, payload)
             .then((res) => {
                 toast.success("Product Created Successfully")
                 setName('');

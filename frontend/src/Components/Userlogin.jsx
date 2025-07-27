@@ -17,7 +17,7 @@ const Login = () => {
             email: email,
             password: password
         }
-        axios.post(`http://localhost:8081/login`, payload)
+        axios.post(`http://localhost:8081/api/login`, payload)
             .then((res) => {
                 localStorage.setItem("token", res.data.token)
                 toast.success('Login Successfully');

@@ -19,7 +19,7 @@ const Admintotal = () => {
         const tokenDecoder = jwtDecode(accessToken)
         setEarnings(tokenDecoder.findUser.earnings)
 
-        axios.get(`http://localhost:8081/activeusers`)
+        axios.get(`http://localhost:8081/api/activeusers`)
             .then((res) => setIsActived(res.data.length))
             .catch(error => console.log(error.message))
     }, [isActived, earnings])

@@ -39,7 +39,7 @@ const Buynow = () => {
 
     useEffect(() => {
         if (id) {
-            axios.get(`http://localhost:8081/singleProduct/${id}`)
+            axios.get(`http://localhost:8081/api/singleProduct/${id}`)
                 .then((res) => {
                     setProduct(res.data);
                 }).catch((error) => { console.log(error.message); });

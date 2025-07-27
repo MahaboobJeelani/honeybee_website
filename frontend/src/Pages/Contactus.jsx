@@ -25,7 +25,7 @@ const Contactus = () => {
             state: state
         }
 
-        await axios.post(`http://localhost:8081/createuser`, payload)
+        await axios.post(`http://localhost:8081/api/createuser`, payload)
             .then((res) => {
                 dispatch(resetForm())
                 toast.success("Data Created Successfully")

@@ -38,7 +38,7 @@ const Userorder = () => {
       setFirstname(user.username);
       setEmail(user.email);
 
-      axios.get(`http://localhost:8081/user/${user._id}`)
+      axios.get(`http://localhost:8081/api/user/${user._id}`)
         .then((res) => {
           setCartItems(res.data.cart);
         })

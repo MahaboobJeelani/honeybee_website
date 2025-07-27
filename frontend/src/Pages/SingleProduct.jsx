@@ -22,14 +22,14 @@ const SingleProduct = () => {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:8081/singleproduct/${id}`)
+        axios.get(`http://localhost:8081/api/singleproduct/${id}`)
             .then((res) => {
                 setProduct(res.data);
             }).catch((error) => { console.log(error.message); });
     }, [id]);
 
     const addToCart = () => {
-        axios.put(`http://localhost:8081/cartitems/${userId}/${id}`)
+        axios.put(`http://localhost:8081/api/cartitems/${userId}/${id}`)
             .then((res) => {
                 toast.success(`Item added successfully`)
                 console.log(res.data);

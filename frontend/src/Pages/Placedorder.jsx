@@ -12,7 +12,7 @@ const PlacedOrder = () => {
             const decodeToken = jwtDecode(userdata);
             const userId = decodeToken.findUser._id;
 
-            axios.get(`http://localhost:8081/userorder/${userId}`)
+            axios.get(`http://localhost:8081/api/userorder/${userId}`)
                 .then((res) => {
                     setOrders(res.data);
                 }).catch((error) => {

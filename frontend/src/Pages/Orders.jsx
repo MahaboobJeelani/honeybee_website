@@ -5,7 +5,7 @@ import axios from 'axios';
 const Orders = () => {
     let [ordersproducts, setOrderproducts] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:8081/honeydata`)
+        axios.get(`http://localhost:8081/api/honeydata`)
             .then((res) => {
                 setOrderproducts(res.data);
             }).catch((error) => {

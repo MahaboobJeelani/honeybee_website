@@ -19,7 +19,7 @@ const Products = () => {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:8081/honeydata`)
+    axios.get(`http://localhost:8081/api/honeydata`)
       .then((res) => {
         setProduct(res.data);
       }).catch((error) => {

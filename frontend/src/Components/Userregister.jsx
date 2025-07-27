@@ -18,7 +18,7 @@ const Userregister = () => {
             password: password,
             role: 'user'
         }
-        axios.post(`http://localhost:8081/register`, payload)
+        axios.post(`http://localhost:8081/api/register`, payload)
             .then((res) => {
                 navigation('/userlogin')
                 console.log("Resgister successfully", res);
